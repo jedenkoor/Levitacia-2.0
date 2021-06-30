@@ -1,0 +1,15 @@
+.goods-slider {
+  overflow: hidden;
+  &__title {
+    margin-bottom: 40px;
+  }
+  &__list {
+    overflow: visible;
+  }
+  &-list {
+    &__wrapper {
+      padding-left: 0;
+      list-style: none;
+    }
+  }
+}

@@ -1,0 +1,227 @@
+@import '~normalize.css';
+@import 'variables/mixins';
+@import 'variables/indents';
+@import 'variables/fonts';
+
+:root {
+  --black-primary: #1e1e1e;
+  --black-900: #383838;
+  --black-800: #525252;
+  --black-700: #6b6b6b;
+  --black-600: #858585;
+  --black-500: #9e9e9e;
+  --black-400: #9e9e9e;
+  --black-300: #b8b8b8;
+  --black-200: #d1d1d1;
+  --black-100: #ebebeb;
+  --white-text-on-black: #f5f5f5;
+  --white-on-grey-bg: #ffffff;
+  --white-on-pic-bg: rgba(255, 255, 255, 0.94);
+  --white-blurred: rgba(245, 245, 245, 0.7);
+  --system-success: #00b33c;
+  --sustem-alarm: #eb2525;
+  --bg: #ffffff;
+  --selection-color: rgba(30, 30, 30, 0.99);
+  --img-selection-color: rgba(30, 30, 30, 0.5);
+}
+
+::selection {
+  color: var(--white-text-on-black);
+  background-color: var(--selection-color);
+}
+
+img::selection {
+  background-color: var(--img-selection-color);
+}
+
+img::-moz-selection {
+  background-color: var(--img-selection-color);
+}
+
+@media screen and (min-width: 1200px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--black-primary);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(---white-bg);
+  }
+}
+
+html.fixed {
+  overflow: hidden;
+}
+
+html.compensate-for-scrollbar {
+  margin-right: 4px;
+  @-moz-document url-prefix() {
+    margin-right: 17px;
+  }
+}
+
+html {
+  background-color: var(--bg);
+}
+
+body {
+  font-family: 'Golos', sans-serif;
+  color: var(--black-primary);
+  font-size: 17px;
+  line-height: 24px;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  transition: opacity 0.2s;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 0;
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1328px;
+  margin: 0 auto;
+  padding: $padding-container;
+  @include w767 {
+    padding: $mobile-padding-container;
+  }
+}
+
+.margin-section {
+  margin-bottom: $margin-section;
+  @include w1023 {
+    margin-bottom: $tablet-margin-section;
+  }
+  @include w767 {
+    margin-bottom: $mobile-margin-section;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 24px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+b {
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.h1title {
+  font-family: 'Giga Sans';
+  margin: 0;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  letter-spacing: -0.04em;
+}
+
+.h2title {
+  font-family: 'Giga Sans';
+  margin: 0;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 40px;
+  letter-spacing: -0.03em;
+}
+
+.primary-btn {
+  display: inline-block;
+  border: 1px solid var(--black-primary);
+  border-radius: 2px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 24px;
+  cursor: pointer;
+  background: var(--black-primary);
+  color: var(--white-text-on-black);
+}
+
+.secondary-btn {
+  display: inline-block;
+  border: 1px solid var(--black-primary);
+  border-radius: 2px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 24px;
+  cursor: pointer;
+  background: var(--bg);
+  color: var(--black-primary);
+}
+
+@import 'blocks/common/header';
+@import 'blocks/common/footer';
+@import 'blocks/common/goods-slider';
+@import 'blocks/common/good-card';
+@import 'blocks/mainpage/banner';
+@import 'blocks/mainpage/collections';

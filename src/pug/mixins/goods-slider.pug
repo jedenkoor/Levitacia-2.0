@@ -1,0 +1,16 @@
+mixin goods-slider(title)
+  section.goods-slider.margin-section
+    .container
+      h2.goods-slider__title&attributes(attributes)= title
+      .goods-slider__list.goods-slider-list.swiper-container 
+        ul.goods-slider-list__wrapper.swiper-wrapper 
+          li.goods-slider-list__slide.swiper-slide 
+            include ../includes/good-card.pug
+          li.goods-slider-list__slide.swiper-slide 
+            include ../includes/good-card.pug
+          li.goods-slider-list__slide.swiper-slide 
+            include ../includes/good-card.pug
+          li.goods-slider-list__slide.swiper-slide 
+            include ../includes/good-card.pug
+          li.goods-slider-list__slide.swiper-slide 
+            include ../includes/good-card.pug

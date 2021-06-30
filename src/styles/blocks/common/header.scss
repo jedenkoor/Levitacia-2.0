@@ -1,0 +1,131 @@
+.header {
+  z-index: 2;
+  &__promo {
+    margin: 0;
+    padding: 4px 0;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:nth-child(2) {
+      padding: 8px 0;
+    }
+    &:nth-child(3) {
+      padding: 14px 0;
+    }
+  }
+  &__col {
+    display: flex;
+    align-items: center;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+    svg {
+      margin-left: 4px;
+      path {
+        fill: var(--black-primary);
+      }
+    }
+  }
+  &__phone {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  &__logo {
+    display: flex;
+    margin-right: 5.7%;
+    svg * {
+      fill: var(--black-primary);
+    }
+  }
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &-menu {
+    &__list {
+      display: flex;
+      padding-left: 0;
+      list-style: none;
+    }
+    &__item {
+      &:not(:last-child) {
+        margin-right: 41px;
+      }
+    }
+    &__link {
+      position: relative;
+      display: flex;
+      font-family: 'Giga Sans';
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      text-transform: uppercase;
+      &[data-count]:after {
+        position: absolute;
+        left: calc(100% + 5px);
+        content: '(' attr(data-count) ')';
+        font-weight: normal;
+        letter-spacing: 0.01em;
+        color: var(--black-800);
+      }
+    }
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 29px;
+  margin-bottom: 25px;
+  padding-left: 0;
+  list-style: none;
+  &__item {
+    margin-bottom: 7px;
+    &:not(:last-child) {
+      display: flex;
+      align-items: center;
+      &:after {
+        content: '—';
+        margin: 0 7px;
+      }
+    }
+  }
+  &__link {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    text-transform: lowercase;
+    &:is(a) {
+      color: var(--black-600);
+    }
+    &:any-link {
+      @include hover {
+        &:hover,
+        &:focus {
+        }
+      }
+      @include active {
+        &:active {
+        }
+      }
+    }
+  }
+}

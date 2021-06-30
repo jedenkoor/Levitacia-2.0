@@ -1,0 +1,77 @@
+.good 
+  .good__wrap
+    a.good__link(href="#") 
+      picture
+        source(type="image/webp" srcset="images/good.jpg")
+        img.good__img(src="images/good.jpg" alt="Бра «Спорт»")
+    ul.good__tags
+      li.good__tag новое
+    button.good__fav.good__fav--active
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.5 7.67576C17.5 8.82133 17.0547 9.92161 16.2593 10.7355C14.4286 12.6097 12.6531 14.5639 10.754 16.3702C10.3187 16.7782 9.62811 16.7633 9.2116 16.3369L3.74032 10.7355C2.08656 9.04241 2.08656 6.3091 3.74032 4.61602C5.41033 2.9063 8.13095 2.9063 9.80097 4.61602L9.99983 4.81961L10.1986 4.61613C10.9993 3.79597 12.0898 3.33337 13.229 3.33337C14.3681 3.33337 15.4586 3.79592 16.2593 4.61602C17.0547 5.43 17.5 6.53024 17.5 7.67576Z" stroke-linejoin="round"/>
+      </svg>
+    .good__hide.good-hide
+      .good-hide__wrapper
+        .swiper-button-prev
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1088 6.22475C12.3528 6.46882 12.3528 6.86455 12.1088 7.10863L9.21738 10L12.1088 12.8914C12.3528 13.1355 12.3528 13.5312 12.1088 13.7753C11.8647 14.0194 11.469 14.0194 11.2249 13.7753L7.89155 10.442C7.64748 10.1979 7.64748 9.80216 7.89155 9.55808L11.2249 6.22475C11.469 5.98067 11.8647 5.98067 12.1088 6.22475Z"/>
+          </svg>
+        .good-hide__slider.swiper-container
+          ul.good-hide__sizes.swiper-wrapper 
+            li.good-hide__size.swiper-slide
+              label
+                input.visually-hidden(type="radio" name="sizes" checked)
+                span xs
+            li.good-hide__size.swiper-slide
+              label
+                input.visually-hidden(type="radio" name="sizes")
+                span s
+            li.good-hide__size.swiper-slide
+              label
+                input.visually-hidden(type="radio" name="sizes")
+                span m
+            li.good-hide__size.swiper-slide
+              label
+                input.visually-hidden(type="radio" name="sizes")
+                span l
+            li.good-hide__size.swiper-slide
+              label
+                input.visually-hidden(type="radio" name="sizes")
+                span xl
+            li.good-hide__size.swiper-slide
+              label
+                input.visually-hidden(type="radio" name="sizes")
+                span xxl
+        .swiper-button-next
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.89123 6.22475C7.64715 6.46882 7.64715 6.86455 7.89123 7.10863L10.7826 10L7.89123 12.8914C7.64715 13.1355 7.64715 13.5312 7.89123 13.7753C8.13531 14.0194 8.53104 14.0194 8.77511 13.7753L12.1084 10.442C12.3525 10.1979 12.3525 9.80216 12.1084 9.55808L8.77511 6.22475C8.53104 5.98067 8.13531 5.98067 7.89123 6.22475Z"/>
+          </svg>
+      button.good-hide__buy
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.5001 14C12.9972 14 13.4001 13.5971 13.4001 13.1C13.4001 12.603 12.9972 12.2 12.5001 12.2C12.003 12.2 11.6001 12.603 11.6001 13.1C11.6001 13.5971 12.003 14 12.5001 14Z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6.5001 14C6.99715 14 7.4001 13.5971 7.4001 13.1C7.4001 12.603 6.99715 12.2 6.5001 12.2C6.00304 12.2 5.6001 12.603 5.6001 13.1C5.6001 13.5971 6.00304 14 6.5001 14Z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.8 3.2H14L12.8 9.8H5L3.8 3.2ZM3.8 3.2C3.7 2.8 3.2 2 2 2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12.8 9.79999H5H5.13846C4.06788 9.79999 3.5 10.2687 3.5 11C3.5 11.7312 4.06788 12.2 5.13846 12.2H12.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      button.good-hide__call 
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.6681 5.84068C11.6681 4.82207 11.2887 3.84518 10.6135 3.12491C9.93825 2.40464 9.02241 2 8.06746 2C7.11251 2 6.19668 2.40464 5.52143 3.12491C4.84617 3.84518 4.46682 4.82207 4.46682 5.84068C4.46682 10.3215 2.6665 11.6017 2.6665 11.6017H13.4684C13.4684 11.6017 11.6681 10.3215 11.6681 5.84068Z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.10566 13.402C9.00016 13.5839 8.84872 13.7349 8.66652 13.8398C8.48432 13.9448 8.27775 14 8.06748 14C7.85722 14 7.65064 13.9448 7.46844 13.8398C7.28624 13.7349 7.1348 13.5839 7.0293 13.402" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+  .good__info 
+    h3.good__title Бра «Спорт»
+    .good__row 
+      span.good__price 5 000 руб.
+      ul.good__colors.good-colors
+        li.good-colors__item
+          label
+            input.visually-hidden(type="radio" name="colors" checked)
+            span(style="background-color: #576BD4;")
+        li.good-colors__item
+          label
+            input.visually-hidden(type="radio" name="colors")
+            span(style="background-color: #E18956;")
+        li.good-colors__item
+          label
+            input.visually-hidden(type="radio" name="colors")
+            span(style="background-color: #7EC270;")

@@ -1,0 +1,208 @@
+.good {
+  position: relative;
+  &:hover {
+    .good__hide {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), visibility 0s 0s;
+    }
+  }
+  &__wrap {
+    position: relative;
+  }
+  &__link {
+    position: relative;
+    display: block;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.22);
+      mix-blend-mode: soft-light;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 416px;
+  }
+  &__tags {
+    position: absolute;
+    top: 12px;
+    left: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+  }
+  &__tag {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--black-900);
+  }
+  &__fav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    padding: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &--active {
+      path {
+        fill: var(--black-primary);
+      }
+    }
+    path {
+      stroke: var(--black-primary);
+    }
+  }
+  &__hide {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+    background: var(--white-on-pic-bg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), visibility 0s 0.3s;
+  }
+  &-hide {
+    &__wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .swiper-button {
+        &-prev,
+        &-next {
+          position: static;
+          width: auto;
+          height: auto;
+          margin: 0;
+          &:after {
+            display: none;
+          }
+          path {
+            fill: var(--black-800);
+          }
+        }
+        &-prev {
+          left: 0;
+          margin-right: 8px;
+        }
+        &-next {
+          right: 0;
+          margin-left: 8px;
+        }
+      }
+    }
+    &__slider {
+      width: 136px;
+    }
+    &__sizes {
+      display: flex;
+      padding-left: 0;
+      list-style: none;
+    }
+    &__size {
+      input:checked + span {
+        border-color: #1e1e1e;
+      }
+      span {
+        display: block;
+        padding: 4px;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    }
+    &__buy {
+      display: flex;
+      margin-left: auto;
+      padding: 6px;
+      background: var(--black-primary);
+      border: 1px solid var(--black-900);
+      border-radius: 2px;
+      cursor: pointer;
+      path {
+        stroke: var(--white-text-on-black);
+      }
+    }
+    &__call {
+      display: flex;
+      margin-left: auto;
+      padding: 6px;
+      background: none;
+      border: 1px solid var(--black-900);
+      border-radius: 2px;
+      cursor: pointer;
+      path {
+        stroke: var(--black-primary);
+      }
+    }
+  }
+  &__title {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: normal;
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+  &__price {
+    margin-right: 19px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  &__colors {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    list-style: none;
+  }
+  &-colors {
+    &__item {
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+      input {
+        &:checked + span:before {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: -1px;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          border: 1px solid var(--black-700);
+        }
+      }
+      span {
+        position: relative;
+        display: block;
+        width: 12px;
+        height: 12px;
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+}
