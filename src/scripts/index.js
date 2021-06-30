@@ -42,13 +42,15 @@ class Init {
         document.querySelector('body').style.opacity = 1
       },
       initGoodsSlider(el) {
-        ;(() =>
-          new Swiper(el, {
-            spaceBetween: 22,
-            slidesPerView: 4,
-            resistanceRatio: 0,
-            threshold: 5
-          }))()
+        const swiper = new Swiper(el, {
+          spaceBetween: 22,
+          slidesPerView: 4,
+          resistanceRatio: 0,
+          threshold: 5
+        })
+        setTimeout(function () {
+          swiper.update()
+        }, 300)
       },
       initSizesSlider(el) {
         const slider = el.querySelector('.good-hide__slider')
