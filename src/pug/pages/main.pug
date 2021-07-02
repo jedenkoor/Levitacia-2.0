@@ -6,14 +6,18 @@ block variables
   - var title = 'Главная'
   - var breadcrumbs = 0
   - var headerAbsolut = 1
+  - var subscribe = 1
 
 block content
+  h1.visually-hidden Levitacia
   section.banner.margin-section 
+    h2.visually-hidden Новая коллекция
     picture
       source(type="image/webp" srcset="images/banner-main.jpg")
       img.banner__img(src="images/banner-main.jpg" alt="Новая коллекция")
     a.banner__btn(href="#") Новая коллекция
   section.collections.margin-section 
+    h2.visually-hidden Коллекции
     .container 
       .collections__row 
         .collections__col 
@@ -49,3 +53,16 @@ block content
   +goods-slider('Новые поступления')(class="h1title")
 
   +goods-slider('Бестселлеры')(class="h1title")
+
+  section.about.margin-section
+    .container.about__container
+      h2.visually-hidden О нашей одежде
+      .about__col
+        picture.about__picture
+          source(type="image/webp" srcset="images/about1.jpg")
+          img.about__img(src="images/about1.jpg" alt="О нашей одежде")
+      .about__col
+        p.about__text В нашей одежде мы говорим о её агендерности и стираем границы между мужским и женским гардеробами
+        picture.about__picture
+          source(type="image/webp" srcset="images/about2.jpg")
+          img.about__img(src="images/about2.jpg" alt="О нашей одежде")

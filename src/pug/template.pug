@@ -45,4 +45,6 @@ html(lang="ru")
       include includes/header.pug
       main.content
         block content
+        if(subscribe === 1)
+          include includes/subscribe.pug
       include includes/footer.pug

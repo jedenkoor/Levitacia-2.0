@@ -1,0 +1,198 @@
+.catalog {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 13.2%;
+  }
+  &__categories {
+    position: sticky;
+    top: 24px;
+    padding-left: 0;
+    list-style: none;
+    // transition: 0.005s;
+  }
+  &-categories {
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+    &__link {
+      color: var(--black-700);
+      &--active {
+        font-weight: 500;
+        color: var(--black-primary);
+      }
+    }
+  }
+  &__filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  &-filters {
+    &__col {
+      display: flex;
+      align-items: center;
+    }
+    &__num {
+      margin-right: 40px;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--black-600);
+    }
+    &__item {
+      position: relative;
+      &:not(:last-child) {
+        margin-right: 40px;
+      }
+    }
+    &-item {
+      &__open {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--black-800);
+        svg {
+          margin-left: 4px;
+          path {
+            fill: var(--black-primary);
+          }
+        }
+      }
+      &__content {
+        position: absolute;
+        z-index: 2;
+        top: calc(100% + 4px);
+        right: 0;
+        min-width: 160px;
+        max-height: 220px;
+        overflow-y: auto;
+        padding-left: 0;
+        list-style: none;
+        background-color: var(--white-on-grey-bg);
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        @media screen and (min-width: 1200px) {
+          &::-webkit-scrollbar {
+            width: 3px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: var(--black-500);
+            border-radius: 10px;
+          }
+          &::-webkit-scrollbar-track {
+            background: var(--black-100);
+          }
+        }
+      }
+      &__option {
+        input {
+          &:focus + span {
+            background-color: var(--white-text-on-black);
+          }
+          &:checked + span {
+            font-weight: 500;
+            color: var(--black-primary);
+            &:before {
+              background-color: var(--black-primary);
+            }
+            &:after {
+              position: absolute;
+              top: 19px;
+              left: 14px;
+              content: '';
+              width: 8.5px;
+              height: 3.5px;
+              border-left: 1px solid var(--white-text-on-black);
+              border-bottom: 1px solid var(--white-text-on-black);
+              transform: rotate(-45deg);
+            }
+          }
+        }
+        span {
+          position: relative;
+          display: flex;
+          align-items: center;
+          padding: 12px 65px 12px 12px;
+          font-size: 14px;
+          line-height: 20px;
+          cursor: pointer;
+          color: var(--black-800);
+          transition: background-color 0.2s;
+          white-space: nowrap;
+          @include hover {
+            &:hover,
+            &:focus {
+              background-color: var(--white-text-on-black);
+            }
+          }
+          @include active {
+            &:active {
+              background-color: var(--white-text-on-black);
+            }
+          }
+          &:before {
+            content: '';
+            width: 13.5px;
+            height: 13.5px;
+            margin-right: 10px;
+            border: 1px solid var(--black-primary);
+            border-radius: 0.6px;
+          }
+        }
+      }
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, calc(33.33% - 14.66px));
+    grid-gap: 80px 22px;
+    padding-left: 0;
+    list-style: none;
+  }
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    padding-left: 0;
+    list-style: none;
+  }
+  &-pagination {
+    &__item {
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+    &__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--black-800);
+      &--active {
+        border: 1px solid #1e1e1e;
+        border-radius: 2px;
+        color: var(--black-primary);
+      }
+      &--arr {
+        width: 24px;
+        height: 24px;
+        &:not(a) {
+          path {
+            fill: var(--black-300);
+          }
+        }
+        path {
+          fill: var(--black-primary);
+        }
+      }
+    }
+  }
+}

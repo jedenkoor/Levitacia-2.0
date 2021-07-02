@@ -1,0 +1,191 @@
+extends ../template
+
+block variables
+  - var title = 'Каталог'
+
+block content
+  section.catalog.margin-section
+    .container 
+      .page-top 
+        h1.h2title.page-top__title Коллекция «стрит»
+        .page-top__text Название мы придумали не просто так — это коллекция согласия перед самим собой и с самим собой. Только ты решаешь, как ты хочешь выглядеть и к чему стремишься, откинув все стереотипы, принимая себя.
+      .catalog__wrapper 
+        .catalog__col
+          ul.catalog__categories.catalog-categories.scroll-block
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Все товары
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Новинки
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Бестселлеры
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Брюки и шорты
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Верхняя одежда
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Жакеты и рубашки
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Худи и свитшоты
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Жилеты
+            li.catalog-categories__item
+              a.catalog-categories__link.catalog-categories__link--active(href="#") Топы и футболки
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Костюмы
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Комбинезоны
+            li.catalog-categories__item
+              a.catalog-categories__link(href="#") Аксессуары
+
+        .catalog__content 
+          .catalog__filters.catalog-filters  
+            .catalog-filters__col
+              .catalog-filters__item.catalog-filters-item.select
+                button.catalog-filters-item__open.select-open
+                  span Размер
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.46967 9.46967C7.76256 9.17678 8.23744 9.17678 8.53033 9.46967L12 12.9393L15.4697 9.46967C15.7626 9.17678 16.2374 9.17678 16.5303 9.46967C16.8232 9.76256 16.8232 10.2374 16.5303 10.5303L12.5303 14.5303C12.2374 14.8232 11.7626 14.8232 11.4697 14.5303L7.46967 10.5303C7.17678 10.2374 7.17678 9.76256 7.46967 9.46967Z"/>
+                  </svg>
+                ul.catalog-filters-item__content.select-content
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span XS
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span S
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span M
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span L
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span XL
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span XXL
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span XXXL
+
+              .catalog-filters__item.catalog-filters-item.select
+                button.catalog-filters-item__open.select-open
+                  span Стиль
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.46967 9.46967C7.76256 9.17678 8.23744 9.17678 8.53033 9.46967L12 12.9393L15.4697 9.46967C15.7626 9.17678 16.2374 9.17678 16.5303 9.46967C16.8232 9.76256 16.8232 10.2374 16.5303 10.5303L12.5303 14.5303C12.2374 14.8232 11.7626 14.8232 11.4697 14.5303L7.46967 10.5303C7.17678 10.2374 7.17678 9.76256 7.46967 9.46967Z"/>
+                  </svg>
+                ul.catalog-filters-item__content.select-content
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span С карманами
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span Оверсайз
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span С капюшоном
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span Укороченный
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span Облегающий
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span С карманами
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span Оверсайз
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span С капюшоном
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span Укороченный
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span Облегающий
+
+            .catalog-filters__col
+              .catalog-filters__num 292 товара
+              .catalog-filters__item.catalog-filters-item.select
+                button.catalog-filters-item__open.select-open
+                  span Сортировка
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.46967 9.46967C7.76256 9.17678 8.23744 9.17678 8.53033 9.46967L12 12.9393L15.4697 9.46967C15.7626 9.17678 16.2374 9.17678 16.5303 9.46967C16.8232 9.76256 16.8232 10.2374 16.5303 10.5303L12.5303 14.5303C12.2374 14.8232 11.7626 14.8232 11.4697 14.5303L7.46967 10.5303C7.17678 10.2374 7.17678 9.76256 7.46967 9.46967Z"/>
+                  </svg>
+                ul.catalog-filters-item__content.select-content
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span С карманами
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span Оверсайз
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="checkbox" name="filter-sizes")
+                      span С капюшоном
+          ul.catalog__list
+            -for(i = 0; i < 12; i++)
+              li.catalog__item 
+                include ../includes/good-card.pug
+
+      ul.catalog__pagination.catalog-pagination
+        li.catalog-pagination__item 
+          .catalog-pagination__link.catalog-pagination__link--arr 
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.75 12C11.75 11.8011 11.829 11.6103 11.9697 11.4697L15.9697 7.46967C16.2626 7.17678 16.7375 7.17678 17.0303 7.46967C17.3232 7.76256 17.3232 8.23744 17.0303 8.53033L13.5607 12L17.0303 15.4697C17.3232 15.7626 17.3232 16.2374 17.0303 16.5303C16.7375 16.8232 16.2626 16.8232 15.9697 16.5303L11.9697 12.5303C11.829 12.3897 11.75 12.1989 11.75 12Z"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75 12C6.75 11.8011 6.82902 11.6103 6.96967 11.4697L10.9697 7.46967C11.2626 7.17678 11.7375 7.17678 12.0303 7.46967C12.3232 7.76256 12.3232 8.23744 12.0303 8.53033L8.56066 12L12.0303 15.4697C12.3232 15.7626 12.3232 16.2374 12.0303 16.5303C11.7375 16.8232 11.2626 16.8232 10.9697 16.5303L6.96967 12.5303C6.82902 12.3897 6.75 12.1989 6.75 12Z"/>
+            </svg>
+        li.catalog-pagination__item 
+          .catalog-pagination__link.catalog-pagination__link--arr 
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5303 7.46967C14.8232 7.76256 14.8232 8.23744 14.5303 8.53033L11.0607 12L14.5303 15.4697C14.8232 15.7626 14.8232 16.2374 14.5303 16.5303C14.2374 16.8232 13.7626 16.8232 13.4697 16.5303L9.46967 12.5303C9.17678 12.2374 9.17678 11.7626 9.46967 11.4697L13.4697 7.46967C13.7626 7.17678 14.2374 7.17678 14.5303 7.46967Z"/>
+            </svg>
+        li.catalog-pagination__item 
+          .catalog-pagination__link.catalog-pagination__link--active 1
+        li.catalog-pagination__item 
+          a.catalog-pagination__link(href="#") 2
+        li.catalog-pagination__item 
+          a.catalog-pagination__link(href="#") 3
+        li.catalog-pagination__item 
+          a.catalog-pagination__link(href="#") 4
+        li.catalog-pagination__item 
+          .catalog-pagination__link ...
+        li.catalog-pagination__item 
+          a.catalog-pagination__link(href="#") 7
+        li.catalog-pagination__item 
+          a.catalog-pagination__link.catalog-pagination__link--arr(href="#") 
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M9.46967 7.46967C9.17678 7.76256 9.17678 8.23744 9.46967 8.53033L12.9393 12L9.46967 15.4697C9.17678 15.7626 9.17678 16.2374 9.46967 16.5303C9.76256 16.8232 10.2374 16.8232 10.5303 16.5303L14.5303 12.5303C14.8232 12.2374 14.8232 11.7626 14.5303 11.4697L10.5303 7.46967C10.2374 7.17678 9.76256 7.17678 9.46967 7.46967Z"/>
+            </svg>
+        li.catalog-pagination__item 
+          a.catalog-pagination__link.catalog-pagination__link--arr(href="#") 
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9697 7.46967C12.2626 7.17678 12.7374 7.17678 13.0303 7.46967L17.0303 11.4697C17.171 11.6103 17.25 11.8011 17.25 12C17.25 12.1989 17.171 12.3897 17.0303 12.5303L13.0303 16.5303C12.7374 16.8232 12.2626 16.8232 11.9697 16.5303C11.6768 16.2374 11.6768 15.7626 11.9697 15.4697L15.4394 12L11.9697 8.53033C11.6768 8.23744 11.6768 7.76256 11.9697 7.46967Z"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.96967 7.46967C7.26256 7.17678 7.73744 7.17678 8.03033 7.46967L12.0303 11.4697C12.171 11.6103 12.25 11.8011 12.25 12C12.25 12.1989 12.171 12.3897 12.0303 12.5303L8.03033 16.5303C7.73744 16.8232 7.26256 16.8232 6.96967 16.5303C6.67678 16.2374 6.67678 15.7626 6.96967 15.4697L10.4394 12L6.96967 8.53033C6.67678 8.23744 6.67678 7.76256 6.96967 7.46967Z"/>
+            </svg>
+
+
+
+

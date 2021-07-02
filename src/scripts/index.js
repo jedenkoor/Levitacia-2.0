@@ -5,7 +5,8 @@ class Init {
   constructor() {
     this.init()
 
-    this.directionScroll = []
+    this.directionScroll = [0]
+    this.count = -24
   }
 
   init() {
@@ -28,16 +29,116 @@ class Init {
         this.actions().initSizesSlider(item)
       })
     }
+
+    if (document.querySelectorAll('.goodpage-accordion__text').length) {
+      const goodInfo = document.querySelectorAll('.goodpage-accordion__text')
+      goodInfo.forEach((item) => {
+        this.actions().initGoodInfo(item)
+      })
+    }
   }
 
   events() {
-    // const _this = this
+    const _this = this
+
+    document.addEventListener('scroll', (e) => {
+      _this.actions().scrollBlock()
+    })
+
+    const emailInput = document.querySelectorAll('input[data-type="email"]')
+    emailInput.forEach((item) => {
+      item.addEventListener('blur', function () {
+        _this.actions().checkEmail(this)
+      })
+    })
+
+    const noTelAndEmailInput = document.querySelectorAll(
+      'input:not([data-type="tel"]):not([data-type="email"]), textarea'
+    )
+    noTelAndEmailInput.forEach((item) => {
+      item.addEventListener('blur', function () {
+        _this.actions().checkOtherInputs(this)
+      })
+    })
+
+    const inputs = document.querySelectorAll('input')
+    if (inputs.length) {
+      inputs.forEach((item) => {
+        item.addEventListener('focus', function () {
+          this.select()
+        })
+      })
+    }
+
+    window.ap(document).on('click', '.select-open', function (e) {
+      e.preventDefault()
+      _this.actions().toggleSelect(this)
+    })
+    document.addEventListener('click', (e) => {
+      if (
+        e.target !== document.querySelector('.select-content') &&
+        e.target.closest('.select-content') === null &&
+        e.target !== document.querySelector('.select-open') &&
+        e.target.closest('.select-open') === null
+      ) {
+        document.querySelectorAll('.select-content').forEach((item) => {
+          item.classList.remove('select-content--active')
+        })
+      }
+    })
+
+    window.ap(document).on('click', '.goodpage-accordion__open', function (e) {
+      e.preventDefault()
+      _this.actions().toggleGoodInfo(this)
+    })
   }
 
   actions() {
-    // const _this = this
-
+    const el = document.querySelector('.scroll-block')
     return {
+      scrollBlock: () => {
+        this.directionScroll.push(window.pageYOffset)
+        if (
+          this.directionScroll[0] < this.directionScroll[1] &&
+          el.getBoundingClientRect().bottom > window.innerHeight - 30 &&
+          el.getBoundingClientRect().top <= 24
+        ) {
+          this.count = this.count + (this.directionScroll[1] - this.directionScroll[0])
+          if (this.count >= el.offsetHeight - window.innerHeight + 30) {
+            this.count = el.offsetHeight - window.innerHeight + 30
+          }
+        } else if (
+          this.directionScroll[0] >= this.directionScroll[1] &&
+          el.getBoundingClientRect().top < 24
+        ) {
+          this.count = this.count - (this.directionScroll[0] - this.directionScroll[1])
+          if (this.count <= -24) {
+            this.count = -24
+          }
+        }
+        el.style.top = `${-this.count}px`
+        this.directionScroll.shift()
+      },
+      checkEmail(el) {
+        const pattern = /^[a-z0-9_.-]+@[a-z0-9_.-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i
+        if (el.value !== '') {
+          if (el.value.search(pattern) === 0) {
+            el.classList.add('input-border')
+          } else {
+            el.classList.remove('input-border')
+          }
+        } else {
+          el.classList.remove('input-err')
+          el.classList.remove('input-border')
+        }
+      },
+      checkOtherInputs(el) {
+        if (el.value !== '') {
+          el.classList.add('input-border')
+        } else {
+          el.classList.remove('input-border')
+        }
+      },
       showBody() {
         document.querySelector('body').style.opacity = 1
       },
@@ -67,6 +168,34 @@ class Init {
               nextEl: nextArr
             }
           }))()
+      },
+      toggleSelect(el) {
+        const selectContent = el.closest('.select').querySelector('.select-content')
+        if (selectContent.classList.contains('select-content--active')) {
+          selectContent.classList.remove('select-content--active')
+        } else {
+          document.querySelectorAll('.select-content').forEach((item) => {
+            item.classList.remove('select-content--active')
+          })
+          selectContent.classList.add('select-content--active')
+        }
+      },
+      initGoodInfo(el) {
+        setTimeout(() => {
+          el.setAttribute('data-height', el.offsetHeight)
+          el.style.opacity = 1
+          el.style.position = 'static'
+          el.style.height = 0
+        }, 100)
+      },
+      toggleGoodInfo(el) {
+        const info = el.closest('.goodpage__accordion').querySelector('.goodpage-accordion__text')
+        el.closest('.goodpage__accordion').classList.toggle('goodpage__accordion--active')
+        if (info.style.height === '0px') {
+          info.style.height = `${info.dataset.height}px`
+        } else {
+          info.style.height = 0
+        }
       }
     }
   }
