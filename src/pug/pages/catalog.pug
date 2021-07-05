@@ -135,16 +135,20 @@ block content
                 ul.catalog-filters-item__content.select-content
                   li.catalog-filters-item__option 
                     label
-                      input.visually-hidden(type="checkbox" name="filter-sizes")
-                      span С карманами
+                      input.visually-hidden(type="radio" name="filter-sort" checked)
+                      span Новинки
                   li.catalog-filters-item__option 
                     label
-                      input.visually-hidden(type="checkbox" name="filter-sizes")
-                      span Оверсайз
+                      input.visually-hidden(type="radio" name="filter-sort")
+                      span Бестселлеры
                   li.catalog-filters-item__option 
                     label
-                      input.visually-hidden(type="checkbox" name="filter-sizes")
-                      span С капюшоном
+                      input.visually-hidden(type="radio" name="filter-sort")
+                      span Цена по возрастанию
+                  li.catalog-filters-item__option 
+                    label
+                      input.visually-hidden(type="radio" name="filter-sort")
+                      span Цена по убыванию
           ul.catalog__list
             -for(i = 0; i < 12; i++)
               li.catalog__item 

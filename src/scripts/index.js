@@ -81,8 +81,8 @@ class Init {
         e.target !== document.querySelector('.select-open') &&
         e.target.closest('.select-open') === null
       ) {
-        document.querySelectorAll('.select-content').forEach((item) => {
-          item.classList.remove('select-content--active')
+        document.querySelectorAll('.select').forEach((item) => {
+          item.classList.remove('select--active')
         })
       }
     })
@@ -170,22 +170,20 @@ class Init {
           }))()
       },
       toggleSelect(el) {
-        const selectContent = el.closest('.select').querySelector('.select-content')
-        if (selectContent.classList.contains('select-content--active')) {
-          selectContent.classList.remove('select-content--active')
+        const select = el.closest('.select')
+        if (select.classList.contains('select--active')) {
+          select.classList.remove('select--active')
         } else {
-          document.querySelectorAll('.select-content').forEach((item) => {
-            item.classList.remove('select-content--active')
+          document.querySelectorAll('.select').forEach((item) => {
+            item.classList.remove('select--active')
           })
-          selectContent.classList.add('select-content--active')
+          select.classList.add('select--active')
         }
       },
       initGoodInfo(el) {
         setTimeout(() => {
           el.setAttribute('data-height', el.offsetHeight)
-          el.style.opacity = 1
-          el.style.position = 'static'
-          el.style.height = 0
+          el.style.height = `${el.offsetHeight}px`
         }, 100)
       },
       toggleGoodInfo(el) {

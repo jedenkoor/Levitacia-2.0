@@ -237,6 +237,14 @@ input[type='number'] {
 }
 
 .select {
+  &--active {
+    .select-content {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), visibility 0s 0s;
+    }
+  }
   &-open {
     padding: 0;
     background: none;
@@ -248,12 +256,6 @@ input[type='number'] {
     visibility: hidden;
     transform: translateY(6px);
     transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), visibility 0s 0.3s;
-    &--active {
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-      transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), visibility 0s 0s;
-    }
   }
 }
 
