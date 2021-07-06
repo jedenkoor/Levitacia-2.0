@@ -121,6 +121,7 @@
           }
           &[type='checkbox'] {
             & + span {
+              display: flex;
               &:before {
                 content: '';
                 width: 13.5px;
@@ -151,7 +152,7 @@
         }
         span {
           position: relative;
-          display: flex;
+          display: block;
           align-items: center;
           padding: 12px;
           font-size: 14px;
@@ -160,6 +161,8 @@
           color: var(--black-800);
           transition: background-color 0.2s;
           white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           @include hover {
             &:hover,
             &:focus {

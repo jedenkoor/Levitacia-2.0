@@ -41,8 +41,11 @@ class Init {
   events() {
     const _this = this
 
-    document.addEventListener('scroll', (e) => {
-      _this.actions().scrollBlock()
+    const scrollBLocks = document.querySelectorAll('.scroll-block')
+    scrollBLocks.forEach((item) => {
+      document.addEventListener('scroll', () => {
+        _this.actions().scrollBlock(item)
+      })
     })
 
     const emailInput = document.querySelectorAll('input[data-type="email"]')
@@ -94,9 +97,8 @@ class Init {
   }
 
   actions() {
-    const el = document.querySelector('.scroll-block')
     return {
-      scrollBlock: () => {
+      scrollBlock: (el) => {
         this.directionScroll.push(window.pageYOffset)
         if (
           this.directionScroll[0] < this.directionScroll[1] &&

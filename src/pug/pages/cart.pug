@@ -1,0 +1,195 @@
+extends ../template
+
+include ../mixins/goods-slider.pug
+
+block variables
+  - var title = 'Корзина'
+
+block content
+  section.cart.margin-section
+    .container 
+      .page-top 
+        .page-top__text 
+          p Оплата товаров доступна бонусами и банковской картой
+          a.page-top__btn.secondary-btn(href="#") Продолжить покупки
+        h1.h2title.page-top__title Корзина
+      .cart__wrap 
+        .cart__content.cart-content
+          .cart-content__row.cart-content__row--header
+            .cart-content__col Товар
+            .cart-content__col Стоимость
+            .cart-content__col Кол-во
+            .cart-content__col Сумма
+          .cart-content__row
+            .cart-content__col 
+              .cart-content__good.cart-content-good 
+                a(href="#") 
+                  picture.cart-content-good__picture
+                    source(type="image/webp" srcset="images/good.jpg")
+                    img.cart-content-good__img(src="images/good.jpg" alt="Бра «Спорт»")
+                .cart-content-good__info 
+                  a.cart-content-good__title(href="#") Олимпийка джоггеры, костюм _sport^
+                  ul.good-hide__sizes
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes" checked)
+                        span xs
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span s
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span m
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span l
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span xl
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span xxl
+                  ul.good__colors.good-colors
+                    li.good-colors__item
+                      label
+                        input.visually-hidden(type="radio" name="good-colors" checked)
+                        span(style="background-color: #576BD4;")
+                    li.good-colors__item
+                      label
+                        input.visually-hidden(type="radio" name="good-colors")
+                        span(style="background-color: #E18956;")
+                    li.good-colors__item
+                      label
+                        input.visually-hidden(type="radio" name="good-colors")
+                        span(style="background-color: #7EC270;")
+            .cart-content__col 
+              span.cart-content__price 5 000 руб.
+            .cart-content__col 
+              .cart-content__nums.cart-content-nums  
+                button.cart-content-nums__btn
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.2984 15.148H16.6984V16.132H11.2984V15.148Z"/>
+                  </svg>
+                input.cart-content-nums__input(type="text" value="15")
+                button.cart-content-nums__btn
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.4732 15.172H11.3012V14.188H13.4732V11.98H14.5292V14.188H16.7012V15.172H14.5292V17.38H13.4732V15.172Z"/>
+                  </svg>
+            .cart-content__col
+              span.cart-content__total 125 000 руб.
+              button.cart-content__del 
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.63059 14.3689L9.99945 10M14.3683 5.63113L9.99945 10M9.99945 10L5.63059 5.63113M9.99945 10L14.3683 14.3689" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+          .cart-content__row.cart-content__row--deleted
+            .cart-content__col 
+              .cart-content__good.cart-content-good 
+                a(href="#") 
+                  picture.cart-content-good__picture
+                    source(type="image/webp" srcset="images/good.jpg")
+                    img.cart-content-good__img(src="images/good.jpg" alt="Бра «Спорт»")
+                .cart-content-good__info 
+                  .cart-content-good__row
+                    a.cart-content-good__title(href="#") Олимпийка джоггеры, костюм _sport^
+                    span.cart-content-good__hint удалён из корзины
+            .cart-content__col 
+            .cart-content__col
+            .cart-content__col
+              button.cart-content__recovery.secondary-btn Восстановить
+              button.cart-content__del 
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.63059 14.3689L9.99945 10M14.3683 5.63113L9.99945 10M9.99945 10L5.63059 5.63113M9.99945 10L14.3683 14.3689" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+          .cart-content__row
+            .cart-content__col 
+              .cart-content__good.cart-content-good 
+                a(href="#") 
+                  picture.cart-content-good__picture
+                    source(type="image/webp" srcset="images/good.jpg")
+                    img.cart-content-good__img(src="images/good.jpg" alt="Бра «Спорт»")
+                .cart-content-good__info 
+                  a.cart-content-good__title(href="#") Олимпийка джоггеры, костюм _sport^
+                  ul.good-hide__sizes
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes" checked)
+                        span xs
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span s
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span m
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span l
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span xl
+                    li.good-hide__size
+                      label
+                        input.visually-hidden(type="radio" name="good-sizes")
+                        span xxl
+                  ul.good__colors.good-colors
+                    li.good-colors__item
+                      label
+                        input.visually-hidden(type="radio" name="good-colors" checked)
+                        span(style="background-color: #576BD4;")
+                    li.good-colors__item
+                      label
+                        input.visually-hidden(type="radio" name="good-colors")
+                        span(style="background-color: #E18956;")
+                    li.good-colors__item
+                      label
+                        input.visually-hidden(type="radio" name="good-colors")
+                        span(style="background-color: #7EC270;")
+            .cart-content__col 
+              span.cart-content__price 5 000 руб.
+            .cart-content__col 
+              .cart-content__nums.cart-content-nums  
+                button.cart-content-nums__btn
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.2984 15.148H16.6984V16.132H11.2984V15.148Z"/>
+                  </svg>
+                input.cart-content-nums__input(type="text" value="15")
+                button.cart-content-nums__btn
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.4732 15.172H11.3012V14.188H13.4732V11.98H14.5292V14.188H16.7012V15.172H14.5292V17.38H13.4732V15.172Z"/>
+                  </svg>
+            .cart-content__col
+              span.cart-content__total 125 000 руб.
+              button.cart-content__del 
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.63059 14.3689L9.99945 10M14.3683 5.63113L9.99945 10M9.99945 10L5.63059 5.63113M9.99945 10L14.3683 14.3689" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+
+
+        aside.cart__aside.cart-aside
+          .cart-aside__wrap
+            form.cart-aside__block
+              h4.cart-aside__title Промокод
+              .cart-aside__row 
+                input.cart-aside__promo(type="text" placeholder="Код купона")
+                button.cart-aside__btn.cart-aside__confirm 
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 13L9 17L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                button.cart-aside__btn.cart-aside__clear(style="display: none")
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.75729 17.2426L11.9999 12M17.2426 6.75736L11.9999 12M11.9999 12L6.75729 6.75736M11.9999 12L17.2426 17.2426" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+            .cart-aside__block
+              .cart-aside__row
+                span.cart-aside__title Итого
+                span.cart-aside__price 250 000 руб.
+              a.cart-aside__checkout.primary-btn(href="#") Оформить заказ

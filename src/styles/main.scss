@@ -223,16 +223,27 @@ input[type='number'] {
   margin-bottom: 22px;
   padding-bottom: 40px;
   border-bottom: 1px solid var(--black-100);
-  &__title {
-    position: absolute;
-  }
   &__text {
     max-width: 270px;
-    margin: 13px auto 0;
+    margin: 12px auto 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--black-800);
+    p {
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    & + .page-top__title {
+      position: absolute;
+    }
+  }
+  &__btn {
+    padding: 5px 11px;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.01em;
-    color: var(--black-800);
   }
 }
 
@@ -269,3 +280,5 @@ input[type='number'] {
 @import 'blocks/mainpage/about';
 @import 'blocks/otherpages/catalog';
 @import 'blocks/otherpages/good';
+@import 'blocks/otherpages/fav';
+@import 'blocks/otherpages/cart';

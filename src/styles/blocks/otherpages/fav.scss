@@ -1,0 +1,9 @@
+.fav {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, calc(25% - 16.5px));
+    grid-gap: 80px 22px;
+    padding-left: 0;
+    list-style: none;
+  }
+}
