@@ -1,0 +1,49 @@
+extends ../template
+
+block variables
+  - var title = 'Адреса магазинов'
+
+block content
+  section.addresses.margin-section
+    .container 
+      .page-top 
+        .page-top__text 
+          p По вопросам сотрудничества и предложениям аренды помещений под наши магазины обращайтесь на 
+            a(href="#") 
+              b info@levitacia.co
+        h1.h2title.page-top__title Адреса магазинов
+      ul.addresses__list
+        li.addresses__row
+          .addresses__info.addresses-info
+            h3.addresses-info__title Шоурум на Смольном
+            p.addresses-info__text Санкт-Петербург, Смольный пр-кт, д. 17
+            .addresses-info__row
+              span.addresses-info__col Ближайшая станция метро
+              span.addresses-info__col Чернышевская
+            .addresses-info__row
+              span.addresses-info__col Режим работы
+              span.addresses-info__col пн–пт 10:00–19:00
+            .addresses-info__row
+              span.addresses-info__col Телефон для связи
+              span.addresses-info__col +7 800 350–20–28
+            button.addresses-info__way Как проехать?
+          picture.addresses__picture
+            source(type="image/webp" srcset="images/addresses.jpg")
+            img.addresses__img(src="images/addresses.jpg" alt="Шоурум на Смольном")
+        li.addresses__row
+          .addresses__info.addresses-info
+            h3.addresses-info__title Шоурум в Доме Мод
+            p.addresses-info__text Санкт-Петербург, Каменноостровский пр-кт, д. 37
+            .addresses-info__row
+              span.addresses-info__col Ближайшая станция метро
+              span.addresses-info__col Чернышевская
+            .addresses-info__row
+              span.addresses-info__col Режим работы
+              span.addresses-info__col пн–пт 10:00–19:00
+            .addresses-info__row
+              span.addresses-info__col Телефон для связи
+              span.addresses-info__col +7 800 350–20–28
+            button.addresses-info__way Как проехать?
+          picture.addresses__picture
+            source(type="image/webp" srcset="images/addresses.jpg")
+            img.addresses__img(src="images/addresses.jpg" alt="Шоурум в Доме Мод")

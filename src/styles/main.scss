@@ -142,7 +142,7 @@ a {
 }
 
 b {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 img {
@@ -224,7 +224,7 @@ input[type='number'] {
   padding-bottom: 40px;
   border-bottom: 1px solid var(--black-100);
   &__text {
-    max-width: 270px;
+    max-width: 280px;
     margin: 12px auto 0;
     font-size: 14px;
     line-height: 20px;
@@ -233,6 +233,9 @@ input[type='number'] {
       margin-bottom: 16px;
       &:last-child {
         margin-bottom: 0;
+      }
+      a {
+        white-space: nowrap;
       }
     }
     & + .page-top__title {
@@ -282,3 +285,7 @@ input[type='number'] {
 @import 'blocks/otherpages/good';
 @import 'blocks/otherpages/fav';
 @import 'blocks/otherpages/cart';
+@import 'blocks/otherpages/addresses';
+@import 'blocks/otherpages/company';
+@import 'blocks/otherpages/contacts';
+@import 'blocks/otherpages/text';

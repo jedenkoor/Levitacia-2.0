@@ -94,6 +94,11 @@ class Init {
       e.preventDefault()
       _this.actions().toggleGoodInfo(this)
     })
+
+    window.ap(document).on('click', '.tabs__btn', function (e) {
+      e.preventDefault()
+      _this.actions().tabChange(this)
+    })
   }
 
   actions() {
@@ -196,6 +201,26 @@ class Init {
         } else {
           info.style.height = 0
         }
+      },
+      tabChange(el) {
+        const tabDataAttr = el.getAttribute('data-tab')
+        const tabContainers = el.closest('.tabs').querySelectorAll('.tabs__block')
+        const tabNavigationItem = el.closest('.tabs').querySelectorAll('.tabs__btn')
+
+        tabContainers.forEach((item) => {
+          item.classList.remove('tabs__block--active')
+          if (item.getAttribute('data-tab') === tabDataAttr) {
+            item.classList.add('tabs__block--active')
+          }
+        })
+
+        tabNavigationItem.forEach((item) => {
+          if (item.getAttribute('data-tab') !== tabDataAttr) {
+            item.classList.remove('tabs__btn--active')
+          }
+        })
+
+        el.classList.add('tabs__btn--active')
       }
     }
   }

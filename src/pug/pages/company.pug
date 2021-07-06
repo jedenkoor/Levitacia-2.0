@@ -1,0 +1,79 @@
+extends ../template
+
+block variables
+  - var title = 'О компании'
+  - var headerAbsolut = 1
+  - var subscribe = 1
+
+block content
+  section.company-banner.margin-section
+    picture
+      source(type="image/webp" srcset="images/about.jpg")
+      img.company-banner__img(src="images/about.jpg" alt="Мы гордимся своей работой")
+    h1.company-banner__title Мы гордимся своей работой
+
+  section.company-about.margin-section
+    .container 
+      h2.company-about__subtitle levitacia — это большое внимание к деталям, которые формируют целостное впечатление о продукте
+      .company-about__content 
+        .company-about__info 
+          h3.company-about__title Артур Мелконян — идейный вдохновитель
+          .company-about__text 
+            p Философия бренда отражается в стремлении к устойчивому развитию: мы используем самые качественные материалы, что даёт возможность вещам оставаться в гардеробе длительное время.
+            p На данный момент мы являемся единственным брендом в России, который использует sustainable-материалы, перерабатывает отходы производства и выступает за минимализацию остатков склада.
+            p Развитие марки в сторону устойчивой моды произошло благодаря нашим постоянным клиентам и друзьям бренда NNedre. Вместе мы взрослели, меняли свои привычки и продолжали поддерживать друг друга. Нас объединяет ответственное отношение к планете, природе и людям.
+            p Наша команда открыта к сотрудничеству с теми, кто смотрит с нами в одну сторону – устойчивого развития.
+        picture.company-about__picture
+          source(type="image/webp" srcset="images/collections1.jpg")
+          img.company-about__img(src="images/collections1.jpg" alt="")
+
+  section.company-categories.margin-section
+    h2.visually-hidden Levitacia
+    ul.container.company-categories__list 
+      li.company-categories__item 
+        picture.company-categories__picture
+          source(type="image/webp" srcset="images/categories1.jpg")
+          img.company-categories__img(src="images/categories1.jpg" alt="Экологичность")
+        h4.company-categories__title Экологичность
+        p.company-categories__text Наш подход к экологической ответственности: от переработанных материалов до специальных проектов и планов на будущее.
+      li.company-categories__item 
+        picture.company-categories__picture
+          source(type="image/webp" srcset="images/categories2.jpg")
+          img.company-categories__img(src="images/categories2.jpg" alt="Уход за вещами")
+        h4.company-categories__title Уход за вещами
+        p.company-categories__text Все наши коллекции разрабатываются с акцентом на долговечность. Мы делимся простыми советами о том, как ухаживать за вещами, чтобы они служили вам как можно дольше.
+      li.company-categories__item 
+        picture.company-categories__picture
+          source(type="image/webp" srcset="images/categories3.jpg")
+          img.company-categories__img(src="images/categories3.jpg" alt="магазины levitacia")
+        h4.company-categories__title 
+          a(href="#") магазины
+          |  levitacia
+        p.company-categories__text Что общего у сиднейского банка в неоклассическом стиле, модернистского здания в Стамбуле и лос-анджелесского кинотеатра, построенного в 20-х годах прошлого века? Узнайте увлекательную историю наших магазинов.
+
+  section.company-inst.margin-section
+    .container 
+      .company-inst__top 
+        h2.company-inst__title.h2title Мы в Instagram
+        a.company-inst__link(href="#") @levitacia.co
+      ul.company-inst__list 
+        li.company-inst__item 
+          a.company-inst__link(href="#" target="_blank") 
+            picture.company-inst__picture
+              source(type="image/webp" srcset="images/inst1.jpg")
+              img.company-inst__img(src="images/inst1.jpg" alt="Instagram")
+        li.company-inst__item 
+          a.company-inst__link(href="#" target="_blank") 
+            picture.company-inst__picture
+              source(type="image/webp" srcset="images/inst2.jpg")
+              img.company-inst__img(src="images/inst2.jpg" alt="Instagram")
+        li.company-inst__item 
+          a.company-inst__link(href="#" target="_blank") 
+            picture.company-inst__picture
+              source(type="image/webp" srcset="images/inst3.jpg")
+              img.company-inst__img(src="images/inst3.jpg" alt="Instagram")
+        li.company-inst__item 
+          a.company-inst__link(href="#" target="_blank") 
+            picture.company-inst__picture
+              source(type="image/webp" srcset="images/inst4.jpg")
+              img.company-inst__img(src="images/inst4.jpg" alt="Instagram")
