@@ -8,22 +8,44 @@ block variables
 block content
   section.goodpage.margin-section
     .container.goodpage__container 
-      ul.goodpage__gallery.goodpage-gallery 
-        li.goodpage-gallery__item 
-          picture.goodpage-gallery__picture
-            source(type="image/webp" srcset="images/good.jpg")
-            img.goodpage-gallery__img(src="images/good.jpg" alt="Бра «Спорт»")
-        li.goodpage-gallery__item 
-          picture.goodpage-gallery__picture
-            source(type="image/webp" srcset="images/good.jpg")
-            img.goodpage-gallery__img(src="images/good.jpg" alt="Бра «Спорт»")
-        li.goodpage-gallery__item 
-          picture.goodpage-gallery__picture
-            source(type="image/webp" srcset="images/good.jpg")
-            img.goodpage-gallery__img(src="images/good.jpg" alt="Бра «Спорт»")
+      .goodpage-gallery__wrapper.swiper-container
+        ul.goodpage__tags 
+          li.goodpage__tag новое
+        ul.goodpage__gallery.goodpage-gallery.swiper-wrapper
+          li.goodpage-gallery__item.swiper-slide
+            a(data-fancybox="good" href="images/good-big.jpg")
+              picture.goodpage-gallery__picture
+                source(type="image/webp" srcset="images/good.jpg")
+                img.goodpage-gallery__img(src="images/good.jpg" alt="Бра «Спорт»")
+          li.goodpage-gallery__item.swiper-slide 
+            a(data-fancybox="good" href="images/good-big.jpg")
+              picture.goodpage-gallery__picture
+                source(type="image/webp" srcset="images/good.jpg")
+                img.goodpage-gallery__img(src="images/good.jpg" alt="Бра «Спорт»")
+          li.goodpage-gallery__item.swiper-slide 
+            a(data-fancybox="good" href="images/good-big.jpg")
+              picture.goodpage-gallery__picture
+                source(type="image/webp" srcset="images/good.jpg")
+                img.goodpage-gallery__img(src="images/good.jpg" alt="Бра «Спорт»")
+        .swiper-pagination
       .goodpage__content 
         .goodpage__wrap.scroll-block
-          h1.h2title.goodpage__title Бра «Спорт»
+          .goodpage__socials.goodpage-socials.select
+            button.goodpage-socials__btn.select-open
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.3327 21C18.8054 21 19.9993 19.7911 19.9993 18.3C19.9993 16.8088 18.8054 15.6 17.3327 15.6C15.8599 15.6 14.666 16.8088 14.666 18.3C14.666 19.7911 15.8599 21 17.3327 21Z" stroke="#1E1E1E" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.3327 8.4C18.8054 8.4 19.9993 7.19117 19.9993 5.7C19.9993 4.20883 18.8054 3 17.3327 3C15.8599 3 14.666 4.20883 14.666 5.7C14.666 7.19117 15.8599 8.4 17.3327 8.4Z" stroke="#1E1E1E" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.66667 14.7C8.13943 14.7 9.33333 13.4912 9.33333 12C9.33333 10.5088 8.13943 9.29999 6.66667 9.29999C5.19391 9.29999 4 10.5088 4 12C4 13.4912 5.19391 14.7 6.66667 14.7Z" stroke="#1E1E1E" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15.1109 7.04999L8.88867 10.65" stroke="#1E1E1E"/>
+                <path d="M8.88867 13.35L15.1109 16.95" stroke="#1E1E1E"/>
+              </svg>
+            .goodpage-socials__list.likely.select-content
+              button.goodpage-socials__copy
+              button.vkontakte
+              button.facebook
+              button.telegram
+              button.whatsapp
+          h1.h2title.goodpage__title Бра «Спортивный спорт»
           .good__row 
             span.good__price 5 000 руб.
             ul.good__colors.good-colors
@@ -39,7 +61,7 @@ block content
                 label
                   input.visually-hidden(type="radio" name="good-colors")
                   span(style="background-color: #7EC270;")
-          .good__row
+          .goodpage__row
             ul.good-hide__sizes
               li.good-hide__size
                 label
@@ -65,9 +87,22 @@ block content
                 label
                   input.visually-hidden(type="radio" name="good-sizes")
                   span xxl
-            button.goodpage__table Таблица размеров
-          .good__row
-            button.goodpage__buy.primary-btn(style="display: none") Добавить в корзину
+            button.goodpage__table(data-fancybox="table" data-src="#table") Таблица размеров
+          .goodpage__row
+            button.goodpage__buy.primary-btn Добавить в корзину
+            button.goodpage__fav 
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 9.21086C21 10.5855 20.4656 11.9059 19.5112 12.8825C17.3144 15.1316 15.1837 17.4767 12.9048 19.6442C12.3824 20.1338 11.5537 20.1159 11.0539 19.6042L4.48838 12.8825C2.50387 10.8508 2.50387 7.57087 4.48838 5.53918C6.4924 3.48751 9.75715 3.48751 11.7612 5.53918L11.9998 5.78348L12.2383 5.53931C13.1992 4.55511 14.5078 4 15.8748 4C17.2418 4 18.5503 4.55506 19.5112 5.53918C20.4657 6.51595 21 7.83624 21 9.21086Z" stroke-linejoin="round"/>
+              </svg>
+            .goodpage__bonus +378 бонусов
+          .goodpage__row
+            button.goodpage__buy.primary-btn(data-fancybox="subscribe" data-src="#subscribe") Уведомить о поступлении
+            button.goodpage__fav 
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 9.21086C21 10.5855 20.4656 11.9059 19.5112 12.8825C17.3144 15.1316 15.1837 17.4767 12.9048 19.6442C12.3824 20.1338 11.5537 20.1159 11.0539 19.6042L4.48838 12.8825C2.50387 10.8508 2.50387 7.57087 4.48838 5.53918C6.4924 3.48751 9.75715 3.48751 11.7612 5.53918L11.9998 5.78348L12.2383 5.53931C13.1992 4.55511 14.5078 4 15.8748 4C17.2418 4 18.5503 4.55506 19.5112 5.53918C20.4657 6.51595 21 7.83624 21 9.21086Z" stroke-linejoin="round"/>
+              </svg>
+            .goodpage__bonus +378 бонусов
+          .goodpage__row
             .goodpage__btns.goodpage-btns.primary-btn
               button.goodpage-btns__btn
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,21 +118,21 @@ block content
                 <path d="M21 9.21086C21 10.5855 20.4656 11.9059 19.5112 12.8825C17.3144 15.1316 15.1837 17.4767 12.9048 19.6442C12.3824 20.1338 11.5537 20.1159 11.0539 19.6042L4.48838 12.8825C2.50387 10.8508 2.50387 7.57087 4.48838 5.53918C6.4924 3.48751 9.75715 3.48751 11.7612 5.53918L11.9998 5.78348L12.2383 5.53931C13.1992 4.55511 14.5078 4 15.8748 4C17.2418 4 18.5503 4.55506 19.5112 5.53918C20.4657 6.51595 21 7.83624 21 9.21086Z" stroke-linejoin="round"/>
               </svg>
             .goodpage__bonus +378 бонусов
-          .goodpage__accordion.goodpage-accordion.goodpage__accordion--active
-            button.goodpage-accordion__open 
+          .goodpage__accordion.goodpage-accordion.accordion.accordion--active
+            button.goodpage-accordion__open.accordion__open 
             h3.goodpage-accordion__title Описание
             .goodpage-accordion__wrap
-              .goodpage-accordion__text 
+              .goodpage-accordion__text.accordion__text 
                 .goodpage-accordion__row16
                   p Спортивный костюм из полиэстера высшего качества. Яркий дизайн, подчеркнутый практичными деталями: объемный карман, молния и система регулировки объема нижней части изделия. Предусмотрен сетчатый подклад, а также технология вентиляции с применением люверсов, встроенных в олимпийку и джоггеры, что обеспечивает беспрепятственную циркуляцию воздуха при высокой температуре воздуха. Легкие джоггеры и олимпийка позволят одновременно оставаться стильными и обеспечат чувство комфорта при теплой и ветреной погоде.
                 .goodpage-accordion__row
                   .goodpage-accordion__col Артикул
                   .goodpage-accordion__col 2USS3
-          .goodpage__accordion.goodpage-accordion.goodpage__accordion--active
-            button.goodpage-accordion__open 
+          .goodpage__accordion.goodpage-accordion.accordion.accordion--active
+            button.goodpage-accordion__open.accordion__open 
             h3.goodpage-accordion__title Состав и уход
             .goodpage-accordion__wrap
-              .goodpage-accordion__text 
+              .goodpage-accordion__text.accordion__text  
                 .goodpage-accordion__row8
                   .goodpage-accordion__col 98%
                   .goodpage-accordion__col Полиэстер
@@ -106,11 +141,11 @@ block content
                   .goodpage-accordion__col Вискоза
                 .goodpage-accordion__row
                   p Ручная стирка в холодной воде, сушка на горизонтальной поверхности
-          .goodpage__accordion.goodpage-accordion.goodpage__accordion--active
-            button.goodpage-accordion__open 
+          .goodpage__accordion.goodpage-accordion.accordion.accordion--active
+            button.goodpage-accordion__open.accordion__open
             h3.goodpage-accordion__title Размер и крой
             .goodpage-accordion__wrap
-              .goodpage-accordion__text 
+              .goodpage-accordion__text.accordion__text  
                 .goodpage-accordion__row4
                   .goodpage-accordion__col50 Размер на модели
                   .goodpage-accordion__col50 RU 42
@@ -123,11 +158,11 @@ block content
                 .goodpage-accordion__row
                   .goodpage-accordion__col50 Параметры модели
                   .goodpage-accordion__col50 178/84/60/88
-          .goodpage__accordion.goodpage-accordion.goodpage__accordion--active
-            button.goodpage-accordion__open 
+          .goodpage__accordion.goodpage-accordion.accordion.accordion--active
+            button.goodpage-accordion__open.accordion__open 
             h3.goodpage-accordion__title Доставка и наличие в магазинах
             .goodpage-accordion__wrap
-              .goodpage-accordion__text 
+              .goodpage-accordion__text.accordion__text  
                 .goodpage-accordion__row4
                   .goodpage-accordion__col50 Ваш город
                   .goodpage-accordion__col50 
@@ -149,11 +184,11 @@ block content
                 .goodpage-accordion__row
                   .goodpage-accordion__col50 На сайте
                   .goodpage-accordion__col50 в наличии 10 шт.
-          .goodpage__accordion.goodpage-accordion.goodpage__accordion--active
-            button.goodpage-accordion__open 
+          .goodpage__accordion.goodpage-accordion.accordion.accordion--active
+            button.goodpage-accordion__open.accordion__open 
             h3.goodpage-accordion__title Задать вопрос о товаре
             .goodpage-accordion__wrap
-              .goodpage-accordion__text 
+              .goodpage-accordion__text.accordion__text 
                 ul.goodpage-accordion__socials
                   li.goodpage-accordion__social
                     a(href="#")

@@ -44,6 +44,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@fancyapps/ui": "^4.0.0-alpha.4",
+    "clipboard": "^2.0.8",
     "ilyabirman-likely": "^2.6.0",
     "normalize.css": "^8.0.1",
     "swiper": "^6.7.0"

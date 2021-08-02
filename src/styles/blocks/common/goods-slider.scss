@@ -2,9 +2,43 @@
   overflow: hidden;
   &__title {
     margin-bottom: 40px;
+    @include w767 {
+      padding-right: 80px;
+    }
   }
   &__list {
     overflow: visible;
+    > .swiper-button-prev,
+    > .swiper-button-next {
+      top: -70px;
+      width: auto;
+      height: auto;
+      margin-top: 0;
+      @include hover {
+        &:hover path,
+        &:focus path {
+          stroke: var(--black-500);
+        }
+      }
+      @include active {
+        &:active path {
+          stroke: var(--black-500);
+        }
+      }
+      &:after {
+        display: none;
+      }
+      path {
+        transition: stroke 0.2s;
+      }
+    }
+    > .swiper-button-prev {
+      left: auto;
+      right: 40px;
+    }
+    > .swiper-button-next {
+      right: 0;
+    }
   }
   &-list {
     &__wrapper {

@@ -8,8 +8,11 @@ block variables
 block content
   section.company-banner.margin-section
     picture
-      source(type="image/webp" srcset="images/about.jpg")
-      img.company-banner__img(src="images/about.jpg" alt="Мы гордимся своей работой")
+      source(media="(min-width: 1024px)" type="image/webp" srcset="images/banner-main.webp")
+      source(media="(min-width: 0px)" type="image/webp" srcset="images/banner-main-tablet.webp")
+      source(media="(min-width: 1024px)" srcset="images/banner-main.jpg")
+      source(media="(min-width: 0px)" srcset="images/banner-main-tablet.jpg")
+      img.banner__img(src="images/banner-main.jpg" alt="Мы гордимся своей работой")
     h1.company-banner__title Мы гордимся своей работой
 
   section.company-about.margin-section

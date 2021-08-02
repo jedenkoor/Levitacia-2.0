@@ -1,24 +1,51 @@
 .company {
   &-banner {
     position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--white-on-pic-bg);
+      opacity: 0.56;
+    }
     &__img {
       width: 100%;
       height: 720px;
       object-fit: cover;
+      @include w1023 {
+        height: 768px;
+      }
+      @include w767 {
+        height: 640px;
+      }
     }
     &__title {
       position: absolute;
+      z-index: 2;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       margin: 0;
-      color: var(--white-on-pic-bg);
       font-family: 'Giga Sans';
       font-weight: 500;
       font-size: 61px;
       line-height: 64px;
       letter-spacing: -0.04em;
       white-space: nowrap;
+      @include w1023 {
+        font-size: 51px;
+        line-height: 56px;
+      }
+      @include w767 {
+        width: 100%;
+        font-size: 42px;
+        line-height: 48px;
+        white-space: normal;
+        text-align: center;
+      }
     }
   }
   &-about {
@@ -30,14 +57,36 @@
       font-size: 35px;
       line-height: 40px;
       letter-spacing: -0.03em;
+      @include w1023 {
+        max-width: 521px;
+        margin-bottom: 56px;
+        font-size: 29px;
+        line-height: 36px;
+        letter-spacing: -0.02em;
+      }
+      @include w767 {
+        margin-bottom: 40px;
+        font-size: 22px;
+        line-height: 28px;
+      }
     }
     &__content {
       display: flex;
       align-items: center;
+      @include w1023 {
+        flex-direction: column-reverse;
+      }
     }
     &__info {
       padding-right: 7.3%;
       padding-left: 11.3%;
+      @include w1023 {
+        padding-right: 14.3%;
+        padding-left: 17.2%;
+      }
+      @include w767 {
+        padding: 0;
+      }
     }
     &__title {
       margin-top: 0;
@@ -47,6 +96,14 @@
       font-size: 22px;
       line-height: 28px;
       letter-spacing: -0.02em;
+      @include w1023 {
+        margin-bottom: 16px;
+        font-size: 19px;
+        line-height: 28px;
+      }
+      @include w767 {
+        margin-bottom: 12px;
+      }
     }
     &__text {
       color: var(--black-900);
@@ -61,11 +118,26 @@
     }
     &__picture {
       flex: 0 0 43.5%;
+      @include w1023 {
+        flex: initial;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+      @include w767 {
+        margin-bottom: 24px;
+      }
     }
     &__img {
       width: 100%;
-      height: 406px;
+      height: 405px;
       object-fit: cover;
+      @include w1023 {
+        object-position: center -26px;
+      }
+      @include w767 {
+        height: 200px;
+        object-position: center -7px;
+      }
     }
   }
   &-categories {
@@ -74,16 +146,36 @@
       grid-template-columns: repeat(3, calc(33.33% - 14.66px));
       grid-gap: 22px;
       list-style: none;
+      @include w1023 {
+        display: flex;
+        overflow-x: auto;
+        grid-gap: initial;
+      }
+    }
+    &__item {
+      @include w1023 {
+        flex: 0 0 340px;
+      }
+      @include w767 {
+        flex: 0 0 300px;
+      }
+      &:not(:last-child) {
+        @include w1023 {
+          margin-right: 22px;
+        }
+      }
     }
     &__picture {
-      position: relative;
       display: block;
-      padding-bottom: 100%;
+      height: 344px;
+      @include w1023 {
+        height: 267px;
+      }
+      @include w767 {
+        height: 222px;
+      }
     }
     &__img {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -98,17 +190,37 @@
       letter-spacing: -0.02em;
       color: var(--black-700);
       text-transform: lowercase;
+      @include w1023 {
+        margin-bottom: 8px;
+        font-size: 19px;
+      }
       a {
         position: relative;
         color: var(--black-primary);
-        &:after {
+        @include hover {
+          &:hover:before,
+          &:focus:before {
+            left: auto;
+            right: 0;
+            width: 0;
+          }
+        }
+        @include active {
+          &:active:before {
+            left: auto;
+            right: 0;
+            width: 0;
+          }
+        }
+        &:before {
           content: '';
           position: absolute;
-          bottom: -2px;
+          bottom: 0;
           left: 0;
           width: 100%;
           height: 2px;
           background-color: currentColor;
+          transition: 0.2s;
         }
       }
     }
@@ -116,6 +228,9 @@
       padding-right: 72px;
       font-size: 14px;
       line-height: 20px;
+      @include w1023 {
+        padding-right: 0;
+      }
     }
   }
   &-inst {
@@ -123,9 +238,21 @@
       display: flex;
       align-items: flex-end;
       margin-bottom: 40px;
+      @include w1023 {
+        display: grid;
+        grid-template-columns: repeat(2, calc(50% - 11px));
+        grid-gap: 22px;
+      }
+      @include w767 {
+        display: block;
+      }
     }
     &__title {
       margin-right: 59px;
+      @include w767 {
+        margin-right: 0;
+        margin-bottom: 16px;
+      }
     }
     &__link {
       font-family: 'Giga Sans';
@@ -134,6 +261,20 @@
       line-height: 28px;
       letter-spacing: -0.02em;
       color: var(--black-700);
+      @include w1023 {
+        font-size: 19px;
+      }
+      @include hover {
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+      @include active {
+        &:active {
+          text-decoration: underline;
+        }
+      }
     }
     &__list {
       display: grid;
@@ -141,11 +282,32 @@
       grid-gap: 22px;
       padding-left: 0;
       list-style: none;
+      @include w1023 {
+        grid-template-columns: repeat(2, calc(50% - 11px));
+      }
+      @include w767 {
+        grid-template-columns: auto;
+        grid-gap: 14px;
+      }
+    }
+    &__link {
+      @include hover {
+        &:hover .company-inst__img,
+        &:focus .company-inst__img {
+          transform: scale(1.05);
+        }
+      }
+      @include active {
+        &:active .company-inst__img {
+          transform: scale(1.05);
+        }
+      }
     }
     &__picture {
       position: relative;
       display: block;
       padding-bottom: 100%;
+      overflow: hidden;
     }
     &__img {
       position: absolute;
@@ -153,6 +315,11 @@
       left: 0;
       width: 100%;
       height: 100%;
+      transition: transform 0.3s;
+      transform: scale(1.001);
+      @media screen and (min-width: 768px) {
+        -webkit-backface-visibility: hidden;
+      }
     }
   }
 }

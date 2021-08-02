@@ -2,17 +2,38 @@
   &__list {
     padding-left: 0;
     list-style: none;
+    @include w767 {
+      padding-top: 8px;
+    }
   }
   &__row {
     display: flex;
+    @include w1023 {
+      flex-direction: column-reverse;
+    }
     &:not(:last-child) {
       margin-bottom: 80px;
+      @include w1023 {
+        margin-bottom: 102px;
+      }
+      @include w767 {
+        margin-bottom: 80px;
+      }
     }
     &:nth-child(2n) {
       flex-direction: row-reverse;
+      @include w1023 {
+        flex-direction: column-reverse;
+      }
       .addresses__info {
         padding-right: 0;
         padding-left: 94px;
+        @include w1200 {
+          padding-left: 20px;
+        }
+        @include w1023 {
+          padding-left: 0;
+        }
       }
     }
   }
@@ -21,6 +42,13 @@
     display: flex;
     flex-direction: column;
     padding-right: 94px;
+    @include w1200 {
+      padding-right: 20px;
+    }
+    @include w1023 {
+      position: relative;
+      padding-right: 0;
+    }
   }
   &-info {
     &__title {
@@ -31,33 +59,71 @@
       font-size: 22px;
       line-height: 28px;
       letter-spacing: -0.02em;
+      @include w767 {
+        margin-bottom: 9px;
+        font-size: 19px;
+      }
     }
     &__text {
       margin-bottom: 40px;
       font-size: 14px;
       line-height: 20px;
+      @include w1023 {
+        margin-bottom: 32px;
+      }
+      @include w767 {
+        margin-bottom: 23px;
+        font-size: 12px;
+        line-height: 16px;
+      }
     }
     &__row {
       display: flex;
-      margin-bottom: 17px;
+      margin-bottom: 16px;
+      @include w767 {
+        margin-bottom: 8px;
+      }
     }
     &__col {
+      @include w767 {
+        font-size: 14px;
+        line-height: 20px;
+      }
       &:first-child {
         flex: 0 0 59.7%;
         color: var(--black-600);
+        @include w1023 {
+          flex: 0 0 51.5%;
+        }
+        @include w767 {
+          flex: 0 0 52%;
+        }
       }
       &:last-child {
         flex: 1;
         color: var(--black-800);
       }
+      &:is(a) {
+        @include hover {
+          &:hover,
+          &:focus {
+            text-decoration: underline;
+          }
+        }
+        @include active {
+          &:active {
+            text-decoration: underline;
+          }
+        }
+      }
     }
     &__way {
+      position: relative;
       width: max-content;
       margin-top: auto;
       padding: 0;
       background: none;
       border: none;
-      border-bottom: 1px solid currentColor;
       font-weight: 500;
       font-size: 14px;
       line-height: 20px;
@@ -65,14 +131,65 @@
       color: var(--black-800);
       text-transform: lowercase;
       cursor: pointer;
+      @include w1023 {
+        position: absolute;
+        top: 43px;
+        right: 0;
+      }
+      @include w767 {
+        position: relative;
+        top: 0;
+        margin-top: 16px;
+      }
+      @include hover {
+        &:hover:before,
+        &:focus:before {
+          left: auto;
+          right: 0;
+          width: 0;
+        }
+      }
+      @include active {
+        &:active:before {
+          left: auto;
+          right: 0;
+          width: 0;
+        }
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+        transition: 0.2s;
+      }
     }
   }
   &__picture {
     width: 54.8%;
+    @include w1200 {
+      width: 51%;
+    }
+    @include w1023 {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    @include w767 {
+      margin-bottom: 24px;
+    }
   }
   &__img {
     width: 100%;
     height: 394px;
     object-fit: cover;
+    @include w1023 {
+      height: 342px;
+    }
+    @include w767 {
+      height: 200px;
+    }
   }
 }

@@ -39,6 +39,13 @@ html(lang="ru")
         .header{
           position: absolute;
           width: 100%;
+          
+        }
+        @media (any-hover: hover) and (pointer: fine) {
+          .header:hover,
+          .header-menu__submenu{
+            background-color: var(--white-on-pic-bg);
+          }
         }
 
     .wrapper
@@ -47,4 +54,7 @@ html(lang="ru")
         block content
         if(subscribe === 1)
           include includes/subscribe.pug
+      include includes/popup-city.pug
+      include includes/popup-subscribe.pug
+      include includes/popup-table.pug
       include includes/footer.pug

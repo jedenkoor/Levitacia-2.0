@@ -2,9 +2,12 @@
   &__map {
     height: 352px;
     margin-bottom: 24px;
-    .ymaps-2-1-78-copyrights-pane,
-    .ymaps-2-1-78-controls__toolbar,
-    .ymaps-2-1-78-controls__bottom {
+    @include w767 {
+      height: 184px;
+    }
+    [class*='ymaps-2'][class*='-copyrights-pane'],
+    [class*='ymaps-2'][class*='-controls__toolbar'],
+    [class*='ymaps-2'][class*='-controls__bottom'] {
       position: absolute;
       width: 1px;
       height: 1px;
@@ -24,6 +27,10 @@
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.01em;
+    @include w767 {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
     > span {
       &:first-child {
         width: 54px;
@@ -44,11 +51,34 @@
       line-height: 16px;
       letter-spacing: 0.01em;
       color: var(--black-500);
+      @include w767 {
+        max-width: 101px;
+      }
     }
     &__text {
       max-width: 195px;
-      margin-right: 6%;
       margin-left: 8%;
+      @include w1200 {
+        margin-left: 5%;
+      }
+      @include w767 {
+        flex: 0 0 100%;
+        margin-top: 16px;
+        margin-left: 101px;
+      }
+    }
+  }
+  &__info {
+    @include w1023 {
+      position: relative;
+      order: -1;
+      margin-left: 17.22%;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @include w767 {
+      margin-left: 0;
     }
   }
   &-info {
@@ -56,6 +86,24 @@
       margin-bottom: 44px;
       font-size: 20px;
       line-height: 28px;
+      @include w1023 {
+        margin-bottom: 24px;
+      }
+      @include w767 {
+        font-size: 17px;
+        line-height: 24px;
+      }
+    }
+    &__wrap {
+      margin-bottom: 24px;
+      @include w1023 {
+        flex: 0 0 50%;
+        margin-bottom: 0;
+      }
+      @include w767 {
+        flex: 0 0 100%;
+        margin-bottom: 24px;
+      }
     }
     &__subtitle {
       margin-top: 0;
@@ -65,10 +113,29 @@
       line-height: 24px;
       letter-spacing: 0.01em;
       color: var(--black-500);
+      @include w767 {
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
     &__text {
+      @include w767 {
+        font-size: 14px;
+        line-height: 20px;
+      }
       a {
         display: block;
+        @include hover {
+          &:hover,
+          &:focus {
+            text-decoration: underline;
+          }
+        }
+        @include active {
+          &:active {
+            text-decoration: underline;
+          }
+        }
         &:not(:last-child) {
           margin-bottom: 4px;
         }
@@ -78,13 +145,46 @@
       display: flex;
       padding-left: 0;
       list-style: none;
+      @include w1023 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: block;
+      }
+      @include w767 {
+        position: static;
+        display: flex;
+      }
     }
     &__social {
+      > a {
+        display: flex;
+        @include hover {
+          &:hover path,
+          &:focus path {
+            fill: var(--black-500);
+          }
+        }
+        @include active {
+          &:active path {
+            fill: var(--black-500);
+          }
+        }
+      }
       &:not(:last-child) {
         margin-right: 12px;
+        @include w1023 {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+        @include w767 {
+          margin-right: 10px;
+          margin-bottom: 0;
+        }
       }
       path {
         fill: var(--black-800);
+        transition: 0.2s;
       }
     }
   }

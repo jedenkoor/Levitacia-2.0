@@ -105,7 +105,7 @@ body {
 
 .margin-section {
   margin-bottom: $margin-section;
-  @include w1023 {
+  @include w1200 {
     margin-bottom: $tablet-margin-section;
   }
   @include w767 {
@@ -181,6 +181,16 @@ input[type='number'] {
   font-size: 42px;
   line-height: 48px;
   letter-spacing: -0.04em;
+  @include w1023 {
+    font-size: 35px;
+    line-height: 40px;
+    letter-spacing: -0.03em;
+  }
+  @include w767 {
+    font-size: 29px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+  }
 }
 
 .h2title {
@@ -190,6 +200,11 @@ input[type='number'] {
   font-size: 35px;
   line-height: 40px;
   letter-spacing: -0.03em;
+  @include w767 {
+    font-size: 29px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+  }
 }
 
 .primary-btn {
@@ -203,6 +218,20 @@ input[type='number'] {
   cursor: pointer;
   background: var(--black-primary);
   color: var(--white-text-on-black);
+  transition: 0.2s;
+  @include hover {
+    &:hover,
+    &:focus {
+      background: var(--black-900);
+      border-color: var(--black-900);
+    }
+  }
+  @include active {
+    &:active {
+      background: var(--black-900);
+      border-color: var(--black-900);
+    }
+  }
 }
 
 .secondary-btn {
@@ -216,19 +245,59 @@ input[type='number'] {
   cursor: pointer;
   background: var(--bg);
   color: var(--black-primary);
+  transition: 0.2s;
+  @include hover {
+    &:hover,
+    &:focus {
+      color: var(--white-text-on-black);
+      background: var(--black-primary);
+    }
+  }
+  @include active {
+    &:active {
+      color: var(--white-text-on-black);
+      background: var(--black-primary);
+    }
+  }
 }
 
 .page-top {
   display: flex;
   margin-bottom: 22px;
-  padding-bottom: 40px;
+  padding-bottom: 39px;
   border-bottom: 1px solid var(--black-100);
+  @include w1200 {
+    flex-direction: column-reverse;
+  }
+  @include w767 {
+    margin-bottom: 16px;
+    padding-bottom: 31px;
+  }
+  &__title {
+    &:not(:first-child) {
+      @include w1200 {
+        margin-bottom: 24px;
+      }
+      @include w767 {
+        margin-bottom: 17px;
+      }
+    }
+  }
   &__text {
     max-width: 280px;
     margin: 12px auto 0;
     font-size: 14px;
     line-height: 20px;
     color: var(--black-800);
+    @include w1200 {
+      max-width: 325px;
+      margin: 0;
+      margin-left: 17.22%;
+    }
+    @include w767 {
+      max-width: none;
+      margin-left: 0;
+    }
     p {
       margin-bottom: 16px;
       &:last-child {
@@ -236,10 +305,24 @@ input[type='number'] {
       }
       a {
         white-space: nowrap;
+        @include hover {
+          &:hover,
+          &:focus {
+            text-decoration: underline;
+          }
+        }
+        @include active {
+          &:active {
+            text-decoration: underline;
+          }
+        }
       }
     }
     & + .page-top__title {
       position: absolute;
+      @include w1200 {
+        position: static;
+      }
     }
   }
   &__btn {
@@ -247,6 +330,12 @@ input[type='number'] {
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.01em;
+    @include w767 {
+      width: 100%;
+      padding: 5px 0;
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 }
 
@@ -273,11 +362,126 @@ input[type='number'] {
   }
 }
 
+.swiper {
+  &-pagination {
+    &.swiper-pagination-bullets {
+      bottom: 14px;
+    }
+    &-bullet {
+      background: var(--white-on-pic-bg);
+      opacity: 1;
+      &-active {
+        background: var(--black-900);
+      }
+    }
+  }
+}
+
+.input-block {
+  position: relative;
+  input {
+    &:not(:placeholder-shown) ~ .clear {
+      display: flex;
+    }
+  }
+  .clear {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    @include hover {
+      &:hover,
+      &:focus {
+        opacity: 0.6;
+      }
+    }
+    @include active {
+      &:active {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.fancybox {
+  &__backdrop {
+    background: #1e1e1e !important;
+    opacity: 0.37 !important;
+  }
+  &__slide {
+    @include w1023 {
+      padding: 16px 0;
+    }
+  }
+}
+
+.accordion {
+  &--active {
+    .accordion__open:before {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+  &__open {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    @include hover {
+      &:hover,
+      &:focus {
+        &:before,
+        &:after {
+          background-color: var(--black-500);
+        }
+      }
+    }
+    @include active {
+      &:active {
+        &:before,
+        &:after {
+          background-color: var(--black-500);
+        }
+      }
+    }
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 1px;
+      background-color: var(--black-primary);
+      transition: background-color 0.2s;
+    }
+    &:before {
+      transform: translate(-50%, -50%) rotate(-90deg);
+      transition: transform 0.2s;
+    }
+  }
+  &__text {
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+}
+
 @import 'blocks/common/header';
 @import 'blocks/common/footer';
 @import 'blocks/common/goods-slider';
 @import 'blocks/common/good-card';
 @import 'blocks/common/subscribe';
+@import 'blocks/common/popups';
+@import 'blocks/common/table';
 @import 'blocks/mainpage/banner';
 @import 'blocks/mainpage/collections';
 @import 'blocks/mainpage/about';

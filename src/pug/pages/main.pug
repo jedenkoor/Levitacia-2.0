@@ -13,41 +13,43 @@ block content
   section.banner.margin-section 
     h2.visually-hidden Новая коллекция
     picture
-      source(type="image/webp" srcset="images/banner-main.jpg")
+      source(media="(min-width: 1024px)" type="image/webp" srcset="images/banner-main.webp")
+      source(media="(min-width: 0px)" type="image/webp" srcset="images/banner-main-tablet.webp")
+      source(media="(min-width: 1024px)" srcset="images/banner-main.jpg")
+      source(media="(min-width: 0px)" srcset="images/banner-main-tablet.jpg")
       img.banner__img(src="images/banner-main.jpg" alt="Новая коллекция")
     a.banner__btn(href="#") Новая коллекция
-  section.collections.margin-section 
+  section.collections#collections.margin-section 
     h2.visually-hidden Коллекции
-    .container 
-      .collections__row 
-        .collections__col 
-          picture.collections__picture
-            source(type="image/webp" srcset="images/collections1.jpg")
-            img.collections__img(src="images/collections1.jpg" alt="коллекция стрит")
-        .collections__col 
-          picture.collections__picture
-            source(type="image/webp" srcset="images/collections2.jpg")
-            img.collections__img(src="images/collections2.jpg" alt="коллекция стрит")
-        .collections__col 
+    .container.collections__container
+      .collections__col 
+        picture.collections__picture
+          source(type="image/webp" srcset="images/collections1.jpg")
+          img.collections__img(src="images/collections1.jpg" alt="коллекция стрит")
+      .collections__col 
+        picture.collections__picture
+          source(type="image/webp" srcset="images/collections2.jpg")
+          img.collections__img(src="images/collections2.jpg" alt="коллекция стрит")
+        .collections__col
           h3.collections__title коллекция 
             a(href="#") стрит
-      .collections__row 
-        .collections__col 
-          p.collections__text В выборе одежды главными ориентирами для нас остаются комфорт и функциональность. Качество наших материвалов позволяет вещам оставаться в гардеробе длительное время
+      .collections__col 
+        p.collections__text В выборе одежды главными ориентирами для нас остаются комфорт и функциональность. Качество наших материвалов позволяет вещам оставаться в гардеробе длительное время
+        .collections__col
           a.collections__link(href="#") о компании
-        .collections__col 
-          picture.collections__picture
-            source(type="image/webp" srcset="images/collections1.jpg")
-            img.collections__img(src="images/collections1.jpg" alt="коллекция концепт")
-          h3.collections__title коллекция 
-            a(href="#") концепт
-        .collections__col 
-          picture.collections__picture
-            source(type="image/webp" srcset="images/collections3.jpg")
-            img.collections__img(src="images/collections3.jpg" alt="женская коллекция")
-          h3.collections__title 
-            a(href="#") женская
-            |  коллекция
+      .collections__col 
+        picture.collections__picture
+          source(type="image/webp" srcset="images/collections1.jpg")
+          img.collections__img(src="images/collections1.jpg" alt="коллекция концепт")
+        h3.collections__title коллекция 
+          a(href="#") концепт
+      .collections__col 
+        picture.collections__picture
+          source(type="image/webp" srcset="images/collections3.jpg")
+          img.collections__img(src="images/collections3.jpg" alt="женская коллекция")
+        h3.collections__title 
+          a(href="#") женская
+          |  коллекция
 
   +goods-slider('Новые поступления')(class="h1title")
 

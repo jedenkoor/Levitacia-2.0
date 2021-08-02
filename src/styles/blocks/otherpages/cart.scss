@@ -3,6 +3,10 @@
     display: grid;
     grid-template-columns: 1fr 267px;
     grid-gap: 58px;
+    @include w1023 {
+      grid-template-columns: auto;
+      grid-gap: 24px;
+    }
   }
   &-content {
     &__row {
@@ -10,13 +14,40 @@
       display: flex;
       align-items: center;
       padding: 15px 42px 16px 0;
+      @include w1200 {
+        display: block;
+        padding: 16px 42px 16px 0;
+      }
+      @include w767 {
+        padding: 13px 20px 14px 0;
+      }
       &:not(:last-child) {
         border-bottom: 1px solid var(--black-100);
+      }
+      &:nth-child(2) {
+        @include w1200 {
+          padding-top: 2px;
+        }
+        @include w767 {
+          padding-top: 8px;
+        }
+        .cart-content-good > a,
+        .cart-content__del {
+          @include w1200 {
+            top: 2px;
+          }
+          @include w767 {
+            top: 8px;
+          }
+        }
       }
       &--header {
         padding-top: 0;
         padding-bottom: 8px;
-        border-bottom: none;
+        border-bottom: none !important;
+        @include w1200 {
+          display: none;
+        }
         .cart-content__col {
           font-family: 'Giga Sans';
           font-weight: 600;
@@ -26,6 +57,9 @@
         }
       }
       &--deleted {
+        @include w1200 {
+          min-height: 144px;
+        }
         .cart-content__col {
           flex: initial !important;
           &:nth-child(1) {
@@ -39,6 +73,12 @@
       }
     }
     &__col {
+      @include w1200 {
+        padding-left: 102px;
+      }
+      @include w767 {
+        padding-left: 78px;
+      }
       &:nth-child(1) {
         flex: 0 0 55.4%;
       }
@@ -48,10 +88,16 @@
       &:nth-child(3) {
         flex: 0 0 15.8%;
         text-align: center;
+        @include w1200 {
+          text-align: left;
+        }
       }
       &:nth-child(4) {
         flex: 1;
         text-align: right;
+        @include w1200 {
+          text-align: left;
+        }
       }
     }
     &__good {
@@ -59,8 +105,31 @@
       align-items: center;
     }
     &-good {
+      > a {
+        @include w1200 {
+          position: absolute;
+          top: 16px;
+          left: 0;
+        }
+        @include w767 {
+          top: 13px;
+        }
+        @include hover {
+          &:hover .cart-content-good__img,
+          &:focus .cart-content-good__img {
+            transform: scale(1.1);
+          }
+        }
+        @include active {
+          &:active .cart-content-good__img {
+            transform: scale(1.1);
+          }
+        }
+      }
       &__picture {
         position: relative;
+        display: block;
+        overflow: hidden;
         &:after {
           content: '';
           position: absolute;
@@ -76,14 +145,29 @@
         width: 80px;
         height: 108px;
         object-fit: cover;
+        transition: transform 0.3s;
+        -webkit-backface-visibility: hidden;
+        @include w767 {
+          width: 64px;
+          height: 86px;
+        }
       }
       &__info {
         margin-left: 22px;
+        @include w1200 {
+          margin-left: 0;
+        }
       }
       &__row {
-        display: flex;
+        @include w1200 {
+          margin-bottom: 16px;
+        }
         .cart-content-good__title {
+          display: inline;
           margin-bottom: 0;
+          @include w767 {
+            display: block;
+          }
         }
       }
       &__title {
@@ -91,25 +175,66 @@
         font-size: 14px;
         line-height: 20px;
         margin-bottom: 12px;
+        transition: 0.2s;
+        @include hover {
+          &:hover,
+          &:focus {
+            color: var(--black-500);
+          }
+        }
+        @include active {
+          &:active {
+            color: var(--black-500);
+          }
+        }
+      }
+      &__wrap {
+        @include w1200 {
+          display: flex;
+          margin-bottom: 16px;
+        }
+        @include w767 {
+          display: block;
+          margin-bottom: 18px;
+        }
       }
       &__hint {
         margin-left: 8px;
         font-size: 14px;
         line-height: 20px;
         color: var(--black-600);
+        @include w767 {
+          display: block;
+          margin-top: 4px;
+          margin-left: 0;
+        }
       }
       .good-hide__sizes {
         margin-bottom: 12px;
+        @include w1200 {
+          margin-right: 24px;
+          margin-bottom: 0;
+        }
+        @include w767 {
+          margin-right: 0;
+          margin-bottom: 12px;
+        }
       }
       .good-hide__size {
         &:not(:last-child) {
           margin-right: 8px;
+          @include w359 {
+            margin-right: 6px;
+          }
         }
         span {
           width: 28px;
           padding: 4px 0;
           font-size: 12px;
           line-height: 16px;
+          @include w359 {
+            width: 26px;
+          }
         }
       }
     }
@@ -117,11 +242,17 @@
       white-space: nowrap;
       font-size: 14px;
       line-height: 20px;
+      @include w767 {
+        display: block;
+      }
     }
     &__nums {
       display: flex;
       max-width: 110px;
       margin: 0 auto;
+      @include w1200 {
+        margin: 12px 0;
+      }
     }
     &-nums {
       &__btn {
@@ -130,8 +261,25 @@
         border: none;
         background: none;
         cursor: pointer;
+        @include hover {
+          &:hover path,
+          &:focus path {
+            fill: var(--black-500);
+          }
+        }
+        @include active {
+          &:active path {
+            fill: var(--black-500);
+          }
+        }
+        &[disabled] {
+          path {
+            fill: var(--black-500);
+          }
+        }
         path {
           fill: var(--black-900);
+          transition: 0.2s;
         }
       }
       &__input {
@@ -153,6 +301,9 @@
       font-size: 14px;
       line-height: 20px;
       letter-spacing: 0.01em;
+      @include w767 {
+        display: block;
+      }
     }
     &__recovery {
       padding: 5px 11px;
@@ -170,13 +321,38 @@
       background: none;
       border: none;
       cursor: pointer;
+      @include w1200 {
+        top: 17px;
+        transform: none;
+      }
+      @include w767 {
+        top: 14px;
+      }
+      @include hover {
+        &:hover path,
+        &:focus path {
+          stroke: var(--black-500);
+        }
+      }
+      @include active {
+        &:active path {
+          stroke: var(--black-500);
+        }
+      }
       path {
         stroke: var(--black-primary);
+        transition: 0.2s;
       }
     }
   }
   &__aside {
     padding-top: 41px;
+    @include w1200 {
+      padding-top: 16px;
+    }
+    @include w767 {
+      padding-top: 2px;
+    }
   }
   &-aside {
     &__wrap {
@@ -187,8 +363,22 @@
       padding: 20px 16px;
       background: var(--white-text-on-black);
       border-radius: 2px;
+      @include w1023 {
+        padding: 16px;
+      }
+      @include w767 {
+        padding: 20px 16px;
+      }
       &:not(:last-child) {
         margin-bottom: 12px;
+        @include w1023 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        @include w767 {
+          display: block;
+        }
       }
     }
     &__title {
@@ -199,12 +389,21 @@
       line-height: 24px;
       letter-spacing: 0.01em;
       color: var(--black-900);
+      @include w1023 {
+        margin-bottom: 0;
+      }
+      @include w767 {
+        margin-bottom: 16px;
+      }
     }
     &__row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 16px;
+      @include w1023 {
+        flex: 0 0 50%;
+      }
       &:last-child {
         margin-bottom: 0;
       }
@@ -234,11 +433,44 @@
       border: 1px solid var(--black-primary);
       border-radius: 2px;
       cursor: pointer;
+      transition: 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          background: var(--black-900);
+          border-color: var(--black-900);
+        }
+      }
+      @include active {
+        &:active {
+          background: var(--black-900);
+          border-color: var(--black-900);
+        }
+      }
     }
     &__confirm {
       background: transparent;
+      transition: 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          background: var(--black-primary);
+          path {
+            stroke: var(--white-text-on-black);
+          }
+        }
+      }
+      @include active {
+        &:active {
+          background: var(--black-primary);
+          path {
+            stroke: var(--white-text-on-black);
+          }
+        }
+      }
       path {
         stroke: var(--black-primary);
+        transition: 0.2s;
       }
     }
     &__clear {

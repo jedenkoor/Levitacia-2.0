@@ -1,0 +1,11 @@
+.popup#subscribe(style="display: none")
+  h3.popup__title Подпиcаться на товар
+  .popup__content
+    .popup__good Бра «Спорт»
+    p.popup__text Напишем сразу, когда товар<br> снова появится на складе
+    form.popup__subscribe.popup-subscribe
+      .popup-subscribe__row
+        input.popup-subscribe__input(type="text" placeholder="Ваш e-mail*" data-type="email" data-required)
+        button.primary-btn.popup-subscribe__btn(type="submit") Подписаться
+      p.popup-subscribe__privacy Подписываясь, вы соглашаетесь с 
+        a(href="#") политикой конфиденциальности

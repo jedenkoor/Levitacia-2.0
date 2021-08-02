@@ -1,11 +1,14 @@
 .good {
   position: relative;
   &:hover {
-    .good__hide {
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-      transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), visibility 0s 0s;
+    @media screen and (min-width: 1200px) {
+      .good__hide {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+          visibility 0s 0s;
+      }
     }
   }
   &__wrap {
@@ -14,6 +17,18 @@
   &__link {
     position: relative;
     display: block;
+    overflow: hidden;
+    @include hover {
+      &:hover .good__img,
+      &:focus .good__img {
+        transform: scale(1.05);
+      }
+    }
+    @include active {
+      &:active .good__img {
+        transform: scale(1.05);
+      }
+    }
     &:after {
       content: '';
       position: absolute;
@@ -29,15 +44,32 @@
     width: 100%;
     height: 416px;
     object-fit: cover;
+    border-radius: 2px;
+    transition: transform 0.3s;
+    transform: scale(1.001);
+    @media screen and (min-width: 768px) {
+      -webkit-backface-visibility: hidden;
+    }
+    @include w1023 {
+      height: 308px;
+    }
+    @include w767 {
+      height: 416px;
+    }
   }
   &__tags {
     position: absolute;
+    z-index: 2;
     top: 12px;
     left: 13px;
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
     list-style: none;
+    @include w1023 {
+      top: 8px;
+      left: 10px;
+    }
   }
   &__tag {
     font-size: 14px;
@@ -46,6 +78,7 @@
   }
   &__fav {
     position: absolute;
+    z-index: 2;
     top: 0;
     right: 0;
     display: flex;
@@ -53,6 +86,21 @@
     background: none;
     border: none;
     cursor: pointer;
+    transition: opacity 0.2s;
+    @include w1023 {
+      padding: 8px;
+    }
+    @include hover {
+      &:hover,
+      &:focus {
+        opacity: 0.5;
+      }
+    }
+    @include active {
+      &:active {
+        opacity: 0.5;
+      }
+    }
     &--active {
       path {
         fill: var(--black-primary);
@@ -62,8 +110,42 @@
       stroke: var(--black-primary);
     }
   }
+  &__show {
+    display: none;
+    @include w1200 {
+      position: absolute;
+      z-index: 2;
+      top: 380px;
+      right: 8px;
+      display: flex;
+      padding: 6px;
+      background: var(--white-on-pic-bg);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          opacity: 0.7;
+        }
+      }
+      @include active {
+        &:active {
+          opacity: 0.7;
+        }
+      }
+    }
+    @include w1023 {
+      top: 272px;
+    }
+    @include w767 {
+      top: 380px;
+    }
+  }
   &__hide {
     position: absolute;
+    z-index: 2;
     bottom: 0;
     display: flex;
     align-items: center;
@@ -74,6 +156,18 @@
     visibility: hidden;
     transform: translateY(16px);
     transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), visibility 0s 0.3s;
+    @include w1023 {
+      padding: 8px;
+    }
+    &--active {
+      @include w1200 {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: opacity 0.3s, transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+          visibility 0s 0s;
+      }
+    }
   }
   &-hide {
     &__wrapper {
@@ -87,6 +181,18 @@
           width: auto;
           height: auto;
           margin: 0;
+          transition: opacity 0.2s;
+          @include hover {
+            &:hover,
+            &:focus {
+              opacity: 0.5;
+            }
+          }
+          @include active {
+            &:active {
+              opacity: 0.5;
+            }
+          }
           &:after {
             display: none;
           }
@@ -97,15 +203,27 @@
         &-prev {
           left: 0;
           margin-right: 8px;
+          @include w1023 {
+            margin-right: 4px;
+          }
         }
         &-next {
           right: 0;
           margin-left: 8px;
+          @include w1023 {
+            margin-left: 4px;
+          }
         }
       }
     }
     &__slider {
       width: 136px;
+      @include w1023 {
+        width: 100px;
+      }
+      @include w767 {
+        width: 136px;
+      }
     }
     &__sizes {
       display: flex;
@@ -113,8 +231,10 @@
       list-style: none;
     }
     &__size {
-      input:checked + span {
-        border-color: #1e1e1e;
+      input {
+        &:checked + span {
+          border-color: #1e1e1e;
+        }
       }
       span {
         display: block;
@@ -126,6 +246,12 @@
         border: 1px solid transparent;
         border-radius: 2px;
         cursor: pointer;
+        transition: color 0.2s;
+        @include hover {
+          &:hover {
+            color: var(--black-500);
+          }
+        }
       }
     }
     &__buy {
@@ -133,9 +259,23 @@
       margin-left: auto;
       padding: 6px;
       background: var(--black-primary);
-      border: 1px solid var(--black-900);
+      border: 1px solid var(--black-primary);
       border-radius: 2px;
       cursor: pointer;
+      transition: 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          background: var(--black-900);
+          border-color: var(--black-900);
+        }
+      }
+      @include active {
+        &:active {
+          background: var(--black-900);
+          border-color: var(--black-900);
+        }
+      }
       path {
         stroke: var(--white-text-on-black);
       }
@@ -145,11 +285,30 @@
       margin-left: auto;
       padding: 6px;
       background: none;
-      border: 1px solid var(--black-900);
+      border: 1px solid var(--black-primary);
       border-radius: 2px;
       cursor: pointer;
+      transition: 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          background: var(--black-primary);
+          path {
+            stroke: var(--white-text-on-black);
+          }
+        }
+      }
+      @include active {
+        &:active {
+          background: var(--black-primary);
+          path {
+            stroke: var(--white-text-on-black);
+          }
+        }
+      }
       path {
         stroke: var(--black-primary);
+        transition: stroke 0.2s;
       }
     }
   }
@@ -159,6 +318,9 @@
     font-size: 17px;
     line-height: 24px;
     font-weight: normal;
+    @include w767 {
+      margin-top: 16px;
+    }
   }
   &__row {
     display: flex;
@@ -183,13 +345,6 @@
       }
       input {
         &:checked + span:before {
-          content: '';
-          position: absolute;
-          top: -1px;
-          left: -1px;
-          width: 14px;
-          height: 14px;
-          border-radius: 50%;
           border: 1px solid var(--black-700);
         }
       }
@@ -203,6 +358,21 @@
         border: none;
         border-radius: 50%;
         cursor: pointer;
+        transition: color 0.2s;
+        @include hover {
+          &:hover:before {
+            border: 1px solid var(--black-700);
+          }
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: -1px;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+        }
       }
     }
   }

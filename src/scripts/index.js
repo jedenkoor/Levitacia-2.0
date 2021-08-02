@@ -1,6 +1,13 @@
 import Swiper from 'swiper/swiper-bundle.js'
 import 'swiper/swiper-bundle.css'
 
+import 'ilyabirman-likely/release/likely.min.js'
+
+import Clipboard from 'clipboard/dist/clipboard.min.js'
+
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox.css'
+
 class Init {
   constructor() {
     this.init()
@@ -16,6 +23,18 @@ class Init {
       this.actions().showBody()
     }, 300)
 
+    Fancybox.bind('[data-fancybox]', {
+      infinite: false,
+      closeButton: 'outside',
+      dragToClose: false,
+      Image: {
+        zoom: false
+      },
+      Thumbs: {
+        autoStart: false
+      }
+    })
+
     if (document.querySelectorAll('.goods-slider__list').length) {
       const goodsSliders = document.querySelectorAll('.goods-slider__list')
       goodsSliders.forEach((item) => {
@@ -30,10 +49,36 @@ class Init {
       })
     }
 
-    if (document.querySelectorAll('.goodpage-accordion__text').length) {
-      const goodInfo = document.querySelectorAll('.goodpage-accordion__text')
-      goodInfo.forEach((item) => {
-        this.actions().initGoodInfo(item)
+    if (document.querySelectorAll('.accordion__text').length) {
+      const accordionText = document.querySelectorAll('.accordion__text')
+      accordionText.forEach((item) => {
+        this.actions().initAccordion(item)
+      })
+    }
+
+    if (
+      document.querySelectorAll('.goodpage-gallery__wrapper').length &&
+      document.documentElement.clientWidth < 1024
+    ) {
+      const goodpageSlider = document.querySelectorAll('.goodpage-gallery__wrapper')
+      goodpageSlider.forEach((item) => {
+        this.actions().initGoodpageSlider(item)
+      })
+    }
+
+    if (document.querySelectorAll('.goodpage-socials__copy').length) {
+      const url = document.location.href
+      const clipboard = new Clipboard('.goodpage-socials__copy', {
+        text: function () {
+          return url
+        }
+      })
+      clipboard.on('success', (e) => {
+        e.trigger.classList.add('active')
+        setTimeout(() => {
+          e.trigger.classList.remove('active')
+          e.trigger.focus()
+        }, 1000)
       })
     }
   }
@@ -75,7 +120,11 @@ class Init {
 
     window.ap(document).on('click', '.select-open', function (e) {
       e.preventDefault()
+      _this.actions().closeMenu()
       _this.actions().toggleSelect(this)
+      if (this.classList.contains('header-menu__link')) {
+        _this.actions().toggleHeader()
+      }
     })
     document.addEventListener('click', (e) => {
       if (
@@ -87,17 +136,52 @@ class Init {
         document.querySelectorAll('.select').forEach((item) => {
           item.classList.remove('select--active')
         })
+        document.querySelector('.header').classList.remove('header--search')
       }
     })
 
-    window.ap(document).on('click', '.goodpage-accordion__open', function (e) {
+    window.ap(document).on('click', '.accordion__open', function (e) {
       e.preventDefault()
-      _this.actions().toggleGoodInfo(this)
+      _this.actions().toggleAccordionText(this)
     })
 
     window.ap(document).on('click', '.tabs__btn', function (e) {
       e.preventDefault()
       _this.actions().tabChange(this)
+    })
+
+    window.ap(document).on('click', '.good__show', function (e) {
+      e.preventDefault()
+      _this.actions().showSizes(this)
+    })
+    document.addEventListener('click', (e) => {
+      if (
+        e.target !== document.querySelector('.good__hide--active') &&
+        e.target.closest('.good__hide--active') === null &&
+        e.target !== document.querySelector('.good__show') &&
+        e.target.closest('.good__show') === null
+      ) {
+        document.querySelectorAll('.good__show').forEach((item) => {
+          item.classList.remove('good__show--active')
+        })
+        document.querySelectorAll('.good__hide').forEach((item) => {
+          item.classList.remove('good__hide--active')
+        })
+      }
+    })
+
+    window.ap(document).on('click', '.clear', function (e) {
+      e.preventDefault()
+      _this.actions().clearInput(this)
+    })
+
+    window.ap(document).on('click', '.header__burger', (e) => {
+      e.preventDefault()
+      _this.actions().toggleMenu()
+    })
+
+    window.ap(document).on('click', '.mobile-menu__link', (e) => {
+      _this.actions().closeMenu()
     })
   }
 
@@ -150,11 +234,25 @@ class Init {
         document.querySelector('body').style.opacity = 1
       },
       initGoodsSlider(el) {
+        const prevArr = el.querySelector('.swiper-button-prev')
+        const nextArr = el.querySelector('.swiper-button-next')
         const swiper = new Swiper(el, {
           spaceBetween: 22,
-          slidesPerView: 4,
+          slidesPerView: 1,
           resistanceRatio: 0,
-          threshold: 5
+          threshold: 5,
+          navigation: {
+            prevEl: prevArr,
+            nextEl: nextArr
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 3
+            },
+            1200: {
+              slidesPerView: 4
+            }
+          }
         })
         setTimeout(function () {
           swiper.update()
@@ -173,6 +271,14 @@ class Init {
             navigation: {
               prevEl: prevArr,
               nextEl: nextArr
+            },
+            breakpoints: {
+              768: {
+                slidesPerView: 3
+              },
+              1024: {
+                slidesPerView: 4
+              }
             }
           }))()
       },
@@ -187,15 +293,19 @@ class Init {
           select.classList.add('select--active')
         }
       },
-      initGoodInfo(el) {
+      initAccordion(el) {
         setTimeout(() => {
           el.setAttribute('data-height', el.offsetHeight)
-          el.style.height = `${el.offsetHeight}px`
+          if (el.closest('.accordion').classList.contains('accordion--active')) {
+            el.style.height = `${el.offsetHeight}px`
+          } else {
+            el.style.height = '0px'
+          }
         }, 100)
       },
-      toggleGoodInfo(el) {
-        const info = el.closest('.goodpage__accordion').querySelector('.goodpage-accordion__text')
-        el.closest('.goodpage__accordion').classList.toggle('goodpage__accordion--active')
+      toggleAccordionText(el) {
+        const info = el.closest('.accordion').querySelector('.accordion__text')
+        el.closest('.accordion').classList.toggle('accordion--active')
         if (info.style.height === '0px') {
           info.style.height = `${info.dataset.height}px`
         } else {
@@ -221,6 +331,46 @@ class Init {
         })
 
         el.classList.add('tabs__btn--active')
+      },
+      showSizes(el) {
+        document.querySelectorAll('.good__show').forEach((item) => {
+          item.classList.remove('good__show--active')
+        })
+        document.querySelectorAll('.good__hide').forEach((item) => {
+          item.classList.remove('good__hide--active')
+        })
+        el.classList.add('good__show--active')
+        el.nextElementSibling.classList.add('good__hide--active')
+      },
+      initGoodpageSlider(el) {
+        const pagination = el.querySelector('.swiper-pagination')
+        ;(() =>
+          new Swiper(el, {
+            spaceBetween: 8,
+            resistanceRatio: 0,
+            threshold: 5,
+            pagination: {
+              el: pagination,
+              type: 'bullets'
+            }
+          }))()
+      },
+      clearInput(el) {
+        const input = el.closest('.input-block').querySelector('input')
+        input.value = ''
+      },
+      toggleMenu() {
+        document.querySelector('.header__mobmenu').classList.toggle('header__mobmenu--active')
+        document.querySelector('.header').classList.toggle('header--active')
+        document.querySelector('html').classList.toggle('fixed')
+      },
+      closeMenu() {
+        document.querySelector('.header__mobmenu').classList.remove('header__mobmenu--active')
+        document.querySelector('.header').classList.remove('header--active')
+        document.querySelector('html').classList.remove('fixed')
+      },
+      toggleHeader() {
+        document.querySelector('.header').classList.toggle('header--search')
       }
     }
   }

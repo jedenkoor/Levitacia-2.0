@@ -1,16 +1,59 @@
 .collections {
-  &__row {
+  @include w1023 {
+    margin-bottom: 124px;
+  }
+  @include w767 {
+    margin-bottom: 82px;
+  }
+  &__container {
     display: grid;
     grid-template-columns: repeat(3, calc(33.33% - 14.66px));
-    grid-gap: 22px;
-    &:not(:last-child) {
-      margin-bottom: 64px;
+    grid-gap: 64px 22px;
+    @include w1023 {
+      grid-template-columns: repeat(2, calc(50% - 11px));
+      grid-gap: 40px 22px;
+    }
+    @include w767 {
+      grid-template-columns: auto;
+      grid-gap: 42px;
     }
   }
   &__col {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    height: 100%;
+    &:nth-child(1):not(:last-child) {
+      @include w767 {
+        order: -2;
+      }
+    }
+    &:nth-child(2):not(:last-child) {
+      grid-column: 2 / 4;
+      display: grid;
+      grid-template-columns: repeat(2, calc(50% - 11px));
+      grid-gap: 22px;
+      @include w1023 {
+        display: flex;
+        grid-column: auto;
+      }
+    }
+    &:nth-child(3):not(:last-child) {
+      @include w1023 {
+        grid-column: 1 / 3;
+        display: grid;
+        grid-template-columns: repeat(2, calc(50% - 11px));
+        grid-gap: 22px;
+        margin-top: -68px;
+      }
+      @include w767 {
+        order: -1;
+        grid-column: auto;
+        grid-template-columns: auto;
+        grid-gap: 24px;
+        margin-top: -26px;
+      }
+    }
   }
   &__picture {
     position: relative;
@@ -50,15 +93,32 @@
     }
     a {
       position: relative;
+      padding-bottom: 2px;
       color: var(--black-primary);
+      @include hover {
+        &:hover:before,
+        &:focus:before {
+          left: auto;
+          right: 0;
+          width: 0;
+        }
+      }
+      @include active {
+        &:active:before {
+          left: auto;
+          right: 0;
+          width: 0;
+        }
+      }
       &:before {
         content: '';
         position: absolute;
-        bottom: -3px;
+        bottom: 0;
         left: 0;
         height: 2px;
         width: 100%;
         background: currentColor;
+        transition: 0.2s;
       }
     }
   }
@@ -67,16 +127,47 @@
     font-size: 14px;
     line-height: 20px;
     color: var(--black-900);
+    @include w1023 {
+      margin-bottom: 0;
+    }
   }
   &__link {
+    position: relative;
     margin-top: auto;
     margin-bottom: 2px;
-    border-bottom: 1px solid currentColor;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.01em;
     color: var(--black-800);
     text-transform: lowercase;
+    @include w767 {
+      margin-bottom: 0;
+    }
+    @include hover {
+      &:hover:before,
+      &:focus:before {
+        left: auto;
+        right: 0;
+        width: 0;
+      }
+    }
+    @include active {
+      &:active:before {
+        left: auto;
+        right: 0;
+        width: 0;
+      }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: currentColor;
+      transition: 0.2s;
+    }
   }
 }

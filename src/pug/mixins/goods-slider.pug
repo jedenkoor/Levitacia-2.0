@@ -2,7 +2,15 @@ mixin goods-slider(title)
   section.goods-slider.margin-section
     .container
       h2.goods-slider__title&attributes(attributes)= title
-      .goods-slider__list.goods-slider-list.swiper-container 
+      .goods-slider__list.goods-slider-list.swiper-container
+        .swiper-button-prev
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 12H5.5M5.5 12L11.5 6M5.5 12L11.5 18" stroke="var(--black-primary)" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        .swiper-button-next
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18" stroke="var(--black-primary)" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg> 
         ul.goods-slider-list__wrapper.swiper-wrapper 
           li.goods-slider-list__slide.swiper-slide 
             include ../includes/good-card.pug
@@ -14,3 +22,4 @@ mixin goods-slider(title)
             include ../includes/good-card.pug
           li.goods-slider-list__slide.swiper-slide 
             include ../includes/good-card.pug
+        

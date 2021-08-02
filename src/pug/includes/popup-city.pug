@@ -1,0 +1,17 @@
+.popup#city(style="display: none")
+  h3.popup__title Ваш город
+  .popup__content
+    p.popup__text От выбранного города зависят доступные способы<br> доставки, их стоимость и наличие товаров
+    form.popup__city.popup-city
+      .popup-city__input.input-block 
+        input(type="text" placeholder="Город")
+        button.clear
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" fill="#9E9E9E"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.0236 8.02328C8.3126 7.73428 8.78115 7.73428 9.07015 8.02328L15.977 14.9302C16.266 15.2192 16.266 15.6877 15.977 15.9767C15.688 16.2657 15.2195 16.2657 14.9305 15.9767L8.0236 9.06983C7.7346 8.78083 7.7346 8.31227 8.0236 8.02328Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.02328 15.9767C7.73428 15.6877 7.73428 15.2192 8.02328 14.9302L14.9302 8.02326C15.2192 7.73426 15.6877 7.73426 15.9767 8.02326C16.2657 8.31226 16.2657 8.78081 15.9767 9.06981L9.06983 15.9767C8.78083 16.2657 8.31227 16.2657 8.02328 15.9767Z" fill="white"/>
+          </svg>
+      ul.popup-city__list
+        -for(i = 0; i < 10; i++)
+          li.popup-city__item
+            button.popup-city__btn Санкт-Петербург

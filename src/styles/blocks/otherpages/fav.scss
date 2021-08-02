@@ -5,5 +5,13 @@
     grid-gap: 80px 22px;
     padding-left: 0;
     list-style: none;
+    @include w1200 {
+      grid-template-columns: repeat(3, calc(33.33% - 14.66px));
+      grid-gap: 60px 22px;
+    }
+    @include w767 {
+      grid-template-columns: auto;
+      grid-gap: 40px;
+    }
   }
 }

@@ -3,6 +3,20 @@
     display: grid;
     grid-template-columns: 1fr 49.14% 1fr;
     grid-gap: 22px;
+    @include w1023 {
+      display: flex;
+      flex-direction: column;
+      grid-gap: initial;
+    }
+  }
+  &__nav {
+    @include w1023 {
+      order: -2;
+      margin-bottom: 24px;
+    }
+    @include w767 {
+      margin-bottom: 16px;
+    }
   }
   &-nav {
     &__list {
@@ -10,26 +24,77 @@
       top: 24px;
       padding-left: 0;
       list-style: none;
+      @include w1023 {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+      @include w767 {
+        overflow-x: auto;
+        width: 100vw;
+        margin-bottom: 0;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        transform: translateX(-16px);
+      }
+      &:after {
+        @include w767 {
+          content: '';
+          flex: 0 0 16px;
+        }
+      }
     }
     &__item {
-      color: var(--black-700);
       &:not(:last-child) {
         margin-bottom: 24px;
+        @include w1023 {
+          margin-bottom: 0;
+        }
+        @include w767 {
+          margin-right: 24px;
+        }
       }
     }
     &__link {
+      color: var(--black-700);
+      transition: 0.2s;
+      white-space: nowrap;
+      @include w1023 {
+        font-size: 20px;
+        line-height: 28px;
+      }
+      @include hover {
+        &:hover,
+        &:focus {
+          color: var(--black-500);
+        }
+      }
+      @include active {
+        &:active {
+          color: var(--black-500);
+        }
+      }
       &--active {
         font-weight: 500;
         letter-spacing: 0.01em;
-        color: var(--black-primary);
+        color: var(--black-primary) !important;
       }
     }
   }
   &__content {
-    ul {
+    @include w1023 {
+      margin-left: 17.22%;
+    }
+    @include w767 {
+      margin-left: 0;
+    }
+    ul:not([class]) {
       margin-bottom: 40px;
       padding-left: 0;
       list-style: none;
+      @include w1023 {
+        margin-bottom: 24px;
+      }
       li {
         &:not(:last-child) {
           margin-bottom: 16px;
@@ -45,8 +110,15 @@
     font-size: 22px;
     line-height: 28px;
     letter-spacing: -0.02em;
+    @include w767 {
+      margin-bottom: 16px;
+      font-size: 19px;
+    }
     &:not(:first-child) {
       margin-top: 40px;
+      @include w767 {
+        margin-top: 32px;
+      }
     }
   }
   &__navigation {
@@ -57,12 +129,23 @@
     padding-left: 0;
     list-style: none;
     border-bottom: 1px solid var(--black-100);
+    @include w767 {
+      padding-bottom: 24px;
+    }
   }
   &-navigation {
     &__item {
       margin-bottom: 16px;
+      @include w767 {
+        width: 100%;
+        margin-bottom: 0;
+      }
       &:not(:last-child) {
         margin-right: 16px;
+        @include w767 {
+          margin-right: 0;
+          margin-bottom: 12px;
+        }
       }
     }
     &__btn {
@@ -74,7 +157,27 @@
       letter-spacing: 0.01em;
       color: var(--black-800);
       cursor: pointer;
+      transition: color 0.2s;
+      @include w1023 {
+        padding: 8px 19px;
+      }
+      @include w767 {
+        width: 100%;
+        padding: 10px 0;
+      }
+      @include hover {
+        &:hover,
+        &:focus {
+          color: var(--black-500);
+        }
+      }
+      @include active {
+        &:active {
+          color: var(--black-500);
+        }
+      }
       &.tabs__btn--active {
+        color: var(--black-800) !important;
         background: var(--white-text-on-black);
       }
     }
@@ -85,11 +188,28 @@
       display: block;
     }
   }
+  &__col {
+    @include w1023 {
+      order: -1;
+      margin-left: 17.22%;
+      margin-bottom: 24px;
+    }
+    @include w767 {
+      margin-left: 0;
+    }
+  }
   &__aside {
     position: sticky;
     top: 24px;
     max-width: 195px;
     margin-left: auto;
+    @include w1023 {
+      display: flex;
+      max-width: none;
+    }
+    @include w767 {
+      display: block;
+    }
   }
   &-aside {
     &__text {
@@ -98,15 +218,31 @@
       line-height: 16px;
       letter-spacing: 0.01em;
       color: var(--black-800);
+      @include w1023 {
+        max-width: 225px;
+        margin-right: 22px;
+        margin-bottom: 0;
+      }
+      @include w767 {
+        margin-bottom: 16px;
+      }
     }
     &__list {
       display: flex;
       padding-left: 0;
       list-style: none;
+      @include w1023 {
+        flex: 1;
+        max-width: 225px;
+        justify-content: space-between;
+      }
     }
     &__item {
       &:not(:last-child) {
         margin-right: 24px;
+        @include w1023 {
+          margin-right: 0;
+        }
       }
     }
   }

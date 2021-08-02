@@ -5,7 +5,7 @@ header.header
   .container
     .header__row
       .header__col
-        button.header__link Санкт-Петербург
+        button.header__link(data-fancybox="city" data-src="#city") Санкт-Петербург
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M4.97994 6.31312C5.1752 6.11785 5.49179 6.11785 5.68705 6.31312L8.00016 8.62623L10.3133 6.31312C10.5085 6.11785 10.8251 6.11785 11.0204 6.31312C11.2156 6.50838 11.2156 6.82496 11.0204 7.02022L8.35372 9.68689C8.15845 9.88215 7.84187 9.88215 7.64661 9.68689L4.97994 7.02022C4.78468 6.82496 4.78468 6.50838 4.97994 6.31312Z"/>
           </svg>
@@ -15,6 +15,11 @@ header.header
         a.header__link(href="#") eng
         a.header__phone(href="tel:88003502028") +7 800 350–20–28
     .header__row
+      button.header__burger 
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H21" stroke="var(--black-primary)" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 15H21" stroke="var(--black-primary)" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       a.header__logo(href="#")
         <svg width="144" height="32" viewBox="0 0 144 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.5586 23.9707V6.22037H26.2545V23.9707H22.5586Z"/>
@@ -33,21 +38,155 @@ header.header
         ul.header-menu__list
           li.header-menu__item
             a.header-menu__link(href="#") концепт
+            .header-menu__submenu.header-menu-submenu 
+              ul.header-menu-submenu__container.container
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Брюки и шорты
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Худи и свитшоты
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Костюмы
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Новинки
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Верхняя одежда
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Топы и футболки
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Комбинезоны
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Бестселлеры
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Жакеты и рубашки
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Жилеты
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Аксессуары
+                li.header-menu-submenu__item 
+                  a.header-menu-submenu__link(href="#") Все товары
           li.header-menu__item
             a.header-menu__link(href="#") стрит
           li.header-menu__item
             a.header-menu__link(href="#") женское
         ul.header-menu__list
-          li.header-menu__item
-            a.header-menu__link(href="#") поиск
+          li.header-menu__item.header-menu__item--search.select
+            button.header-menu__link.select-open(text="Закрыть") Поиск
+            form.header-menu__search.header-menu-search.select-content
+              .header-menu-search__container.container.input-block
+                input.header-menu-search__input(type="text" placeholder="Поиск по товарам...")
+                button.clear
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="9" fill="#9E9E9E"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.0236 8.02328C8.3126 7.73428 8.78115 7.73428 9.07015 8.02328L15.977 14.9302C16.266 15.2192 16.266 15.6877 15.977 15.9767C15.688 16.2657 15.2195 16.2657 14.9305 15.9767L8.0236 9.06983C7.7346 8.78083 7.7346 8.31227 8.0236 8.02328Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.02328 15.9767C7.73428 15.6877 7.73428 15.2192 8.02328 14.9302L14.9302 8.02326C15.2192 7.73426 15.6877 7.73426 15.9767 8.02326C16.2657 8.31226 16.2657 8.78081 15.9767 9.06981L9.06983 15.9767C8.78083 16.2657 8.31227 16.2657 8.02328 15.9767Z" fill="white"/>
+                  </svg>
+                button.header-menu-search__btn(type="submit") 
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 16.5L21 21" stroke="#858585" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 10.7143C3 14.9748 6.4538 18.4286 10.7143 18.4286C12.8482 18.4286 14.7798 17.5621 16.1764 16.1618C17.5681 14.7664 18.4286 12.8408 18.4286 10.7143C18.4286 6.4538 14.9748 3 10.7143 3C6.4538 3 3 6.4538 3 10.7143Z" stroke="#858585" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
           li.header-menu__item
             a.header-menu__link(href="#") избранное
           li.header-menu__item
             a.header-menu__link(href="#" data-count="10") корзина
           li.header-menu__item
             a.header-menu__link(href="#") вход
-    ul.breadcrumbs 
-      li.breadcrumbs__item
-        a.breadcrumbs__link(href="#") главная
-      li.breadcrumbs__item
-        .breadcrumbs__link корзина
+
+.header__mobmenu.header-mobmenu
+  .container
+    .header-mobmenu__row
+      .header__col
+        button.header__link.header__link--mobcity Санкт-Петербург
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.97994 6.31312C5.1752 6.11785 5.49179 6.11785 5.68705 6.31312L8.00016 8.62623L10.3133 6.31312C10.5085 6.11785 10.8251 6.11785 11.0204 6.31312C11.2156 6.50838 11.2156 6.82496 11.0204 7.02022L8.35372 9.68689C8.15845 9.88215 7.84187 9.88215 7.64661 9.68689L4.97994 7.02022C4.78468 6.82496 4.78468 6.50838 4.97994 6.31312Z"/>
+          </svg>
+        a.header__link(href="#") Контакты
+      .header__col
+        a.header__link(href="#") eng
+        a.header__phone(href="tel:88003502028") +7 800 350–20–28
+    .header-mobmenu__content 
+      ul.header-mobmenu__list
+        li.header-mobmenu__item
+          a.header-mobmenu__link(href="#") О компании
+        li.header-mobmenu__item
+          a.header-mobmenu__link(href="#") Адреса магазинов
+        li.header-mobmenu__item
+          a.header-mobmenu__link(href="#") Программа лояльности
+        li.header-mobmenu__item
+          a.header-mobmenu__link(href="#") Оплата и возврат
+        li.header-mobmenu__item
+          a.header-mobmenu__link(href="#") Доставка
+      .header-mobmenu__col
+        .header-mobmenu__accordion.accordion
+          button.header-mobmenu__open.accordion__open
+          a.header-mobmenu__title(href="#") Концепт
+          ul.header-mobmenu__submenu.header-mobmenu-submenu.accordion__text
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Брюки и шорты
+        .header-mobmenu__accordion.accordion
+          button.header-mobmenu__open.accordion__open
+          a.header-mobmenu__title(href="#") Стрит
+          ul.header-mobmenu__submenu.header-mobmenu-submenu.accordion__text
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Брюки и шорты
+        .header-mobmenu__accordion.accordion
+          button.header-mobmenu__open.accordion__open
+          a.header-mobmenu__title(href="#") Женское
+          ul.header-mobmenu__submenu.header-mobmenu-submenu.accordion__text
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Брюки и шорты
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Верхняя одежда
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Жакеты и рубашки
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Худи и свитшоты
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Топы и футболки
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Жилеты
+            li.header-mobmenu-submenu__item 
+              a.header-mobmenu-submenu__link(href="#") Костюмы
+
+ul.breadcrumbs.container
+  li.breadcrumbs__item
+    a.breadcrumbs__link(href="#") главная
+  li.breadcrumbs__item
+    .breadcrumbs__link корзина
+
+
+nav.mobile-menu
+  ul.mobile-menu__list
+    li.mobile-menu__item 
+      a.mobile-menu__link(href="main.html#collections") 
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.7998 20.4V14.6C14.7998 14.2686 15.0684 14 15.3998 14H21.1998C21.5312 14 21.7998 14.2686 21.7998 14.6V20.4C21.7998 20.7314 21.5312 21 21.1998 21H15.3998C15.0684 21 14.7998 20.7314 14.7998 20.4Z"/>
+          <path d="M3.7998 20.4V14.6C3.7998 14.2686 4.06843 14 4.3998 14H10.1998C10.5312 14 10.7998 14.2686 10.7998 14.6V20.4C10.7998 20.7314 10.5312 21 10.1998 21H4.3998C4.06843 21 3.7998 20.7314 3.7998 20.4Z"/>
+          <path d="M14.7998 9.4V3.6C14.7998 3.26863 15.0684 3 15.3998 3H21.1998C21.5312 3 21.7998 3.26863 21.7998 3.6V9.4C21.7998 9.73137 21.5312 10 21.1998 10H15.3998C15.0684 10 14.7998 9.73137 14.7998 9.4Z"/>
+          <path d="M3.7998 9.4V3.6C3.7998 3.26863 4.06843 3 4.3998 3H10.1998C10.5312 3 10.7998 3.26863 10.7998 3.6V9.4C10.7998 9.73137 10.5312 10 10.1998 10H4.3998C4.06843 10 3.7998 9.73137 3.7998 9.4Z"/>
+        </svg>
+        | Каталог
+    li.mobile-menu__item 
+      a.mobile-menu__link(href="#") 
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.3999 9.21086C21.3999 10.5855 20.8655 11.9059 19.9111 12.8825C17.7143 15.1316 15.5836 17.4767 13.3047 19.6442C12.7823 20.1338 11.9536 20.1159 11.4538 19.6042L4.88828 12.8825C2.90378 10.8508 2.90378 7.57087 4.88828 5.53918C6.8923 3.48751 10.157 3.48751 12.1611 5.53918L12.3997 5.78348L12.6382 5.53931C13.5991 4.55511 14.9077 4 16.2747 4C17.6417 4 18.9502 4.55506 19.9111 5.53918C20.8656 6.51595 21.3999 7.83624 21.3999 9.21086Z" stroke-linejoin="round"/>
+        </svg>
+        | Избранное
+    li.mobile-menu__item 
+      a.mobile-menu__link(href="#") 
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.7499 20.9998C19.4955 20.9998 20.0999 20.3954 20.0999 19.6498C20.0999 18.9042 19.4955 18.2998 18.7499 18.2998C18.0043 18.2998 17.3999 18.9042 17.3999 19.6498C17.3999 20.3954 18.0043 20.9998 18.7499 20.9998Z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.7499 20.9998C10.4955 20.9998 11.0999 20.3954 11.0999 19.6498C11.0999 18.9042 10.4955 18.2998 9.7499 18.2998C9.00432 18.2998 8.3999 18.9042 8.3999 19.6498C8.3999 20.3954 9.00432 20.9998 9.7499 20.9998Z" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5.7 4.8H21L19.2 14.7H7.5L5.7 4.8ZM5.7 4.8C5.55 4.2 4.8 3 3 3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19.2 14.7002H7.5H7.70769C6.10182 14.7002 5.25 15.4033 5.25 16.5002C5.25 17.5971 6.10182 18.3002 7.70769 18.3002H18.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        | Корзина
+    li.mobile-menu__item 
+      a.mobile-menu__link(href="#") 
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.59961 20V19C5.59961 15.134 8.73362 12 12.5996 12V12C16.4656 12 19.5996 15.134 19.5996 19V20" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12.5996 12C14.8087 12 16.5996 10.2091 16.5996 8C16.5996 5.79086 14.8087 4 12.5996 4C10.3905 4 8.59961 5.79086 8.59961 8C8.59961 10.2091 10.3905 12 12.5996 12Z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        | Профиль
+
+        
